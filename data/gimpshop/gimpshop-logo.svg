@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GIMPshop logo: three offset "layer cards" with a brush stroke.
+     Original artwork for the GIMPshop fork, licensed CC BY-SA 4.0. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="back" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#20c3b0"/>
+      <stop offset="1" stop-color="#108a9c"/>
+    </linearGradient>
+    <linearGradient id="mid" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b6cf0"/>
+      <stop offset="1" stop-color="#5a3fc4"/>
+    </linearGradient>
+    <linearGradient id="front" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb347"/>
+      <stop offset="1" stop-color="#f2683c"/>
+    </linearGradient>
+  </defs>
+  <g transform="rotate(-12 128 128)">
+    <rect x="70" y="22" width="150" height="150" rx="30" fill="url(#back)"/>
+    <rect x="52" y="54" width="150" height="150" rx="30" fill="url(#mid)"/>
+    <rect x="34" y="86" width="150" height="150" rx="30" fill="url(#front)"/>
+  </g>
+  <!-- brush stroke -->
+  <path d="M62 190 C 88 150, 120 196, 150 160 S 190 120, 200 132"
+        fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="204" cy="128" r="11" fill="#ffffff"/>
+</svg>

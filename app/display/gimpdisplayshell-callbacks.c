@@ -642,7 +642,41 @@ gimp_display_shell_canvas_draw_drop_zone (GimpDisplayShell *shell,
 
   gimp_display_shell_draw_background (shell, cr);
 
-  gimp_cairo_draw_drop_wilber (shell->canvas, cr, shell->blink);
+  /* GIMPshop: a calm, empty pasteboard like Photoshop instead of the
+   * big Wilber drop zone; only a discreet hint is shown.
+   */
+#ifndef GIMP_UNSTABLE
+  {
+    GtkStyleContext *context = gtk_widget_get_style_context (shell->canvas);
+    PangoLayout     *layout;
+    GtkAllocation    allocation;
+    GdkRGBA          color;
+    gint             width;
+    gint             height;
+
+    layout = gtk_widget_create_pango_layout (shell->canvas, NULL);
+    pango_layout_set_markup (layout,
+                             _("<big>Drop an image here</big>\n\n"
+                               "or press Ctrl+N (New) / Ctrl+O (Open)"),
+                             -1);
+    pango_layout_set_alignment (layout, PANGO_ALIGN_CENTER);
+    pango_layout_get_pixel_size (layout, &width, &height);
+    gtk_widget_get_allocation (shell->canvas, &allocation);
+
+    gtk_style_context_get_color (context,
+                                 gtk_widget_get_state_flags (shell->canvas),
+                                 &color);
+    color.alpha *= 0.35;
+    gdk_cairo_set_source_rgba (cr, &color);
+
+    cairo_move_to (cr,
+                   (allocation.width  - width)  / 2,
+                   (allocation.height - height) / 2);
+    pango_cairo_show_layout (cr, layout);
+
+    g_object_unref (layout);
+  }
+#endif /* ! GIMP_UNSTABLE */
 
   cairo_restore (cr);
 

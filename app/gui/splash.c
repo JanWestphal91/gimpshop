@@ -731,6 +731,15 @@ splash_image_load (Gimp     *gimp,
   if (animation)
     return animation;
 
+  /* GIMPshop splash image, preferred over GIMP's release splash. */
+  file = gimp_data_directory_file ("images", "gimpshop-splash.png", NULL);
+  animation = splash_image_load_from_file (file,
+                                           max_width, max_height,
+                                           be_verbose);
+  g_object_unref (file);
+  if (animation)
+    return animation;
+
   /* Release splash image. */
   file = gimp_data_directory_file ("images", "gimp-splash.png", NULL);
   animation = splash_image_load_from_file (file,

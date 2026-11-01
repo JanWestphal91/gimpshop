@@ -18,11 +18,17 @@
 #pragma once
 
 
+/* GIMPshop: product name shown in window titles, dialogs and
+ * "--version". The fork is based on GIMP, see GIMPSHOP_BASED_ON.
+ */
 #define GIMP_ACRONYM \
-  _("GIMP")
+  "GIMPshop"
 
 #define GIMP_NAME \
-  _("GNU Image Manipulation Program")
+  "GIMPshop"
+
+#define GIMPSHOP_BASED_ON \
+  _("Based on GIMP, the GNU Image Manipulation Program")
 
 /* The year of the last commit (UTC) will be inserted into this string. */
 #define GIMP_COPYRIGHT \

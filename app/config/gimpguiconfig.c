@@ -267,7 +267,7 @@ gimp_gui_config_class_init (GimpGuiConfigClass *klass)
                             "toolbox-wilber",
                             "Show toolbox wilber",
                             TOOLBOX_WILBER_BLURB,
-                            TRUE,
+                            FALSE,
                             GIMP_PARAM_STATIC_STRINGS);
 
   GIMP_CONFIG_PROP_BOOLEAN (object_class, PROP_TOOLBOX_GROUPS,

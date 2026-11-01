@@ -1,4 +1,5 @@
 subdir('dynamics')
+subdir('gimpshop')
 subdir('environ')
 subdir('gradients')
 subdir('interpreters')

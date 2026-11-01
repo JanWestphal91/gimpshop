@@ -145,3 +145,12 @@ abfangen.
 | Strg+G | Verläufe-Dialog | Neue Ebenengruppe |
 | Strg+F | Filter wiederholen | Aktion suchen |
 | Strg+Umschalt+V | Als neues Bild einfügen | An Originalposition einfügen |
+
+## Aussehen (Phase 2)
+
+- **Theme „GIMPshop“** ist Standard. Helligkeit wie in Photoshop wählbar unter
+  *Bearbeiten → Einstellungen → Oberfläche → Theme*: Farbschema *Dunkel*
+  (#323232), *Grau* (#535353) oder *Hell* (#F0F0F0).
+- Das ursprüngliche GIMP-Aussehen heißt dort **„GIMP Classic“**.
+- Blau markiert Menüeinträge, aktive Reiter, Checkboxen und den
+  Standard-Button in Dialogen.

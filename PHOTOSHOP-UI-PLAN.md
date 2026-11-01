@@ -81,16 +81,40 @@ muss im C-Code dieses Forks passieren.
 6. Zusätzlich die Datei `shortcutsrc` für Nutzer mit bestehendem Profil
    ausliefern und beim ersten Start migrieren.
 
-### Phase 2 – Optik (Theme, Icons, Splash)
+### Phase 2 – Optik und Branding ✅ größtenteils umgesetzt
 
-1. Neues Theme `themes/Photoshop-like/` (eigener Name, z. B. „Studio Dark“)
-   mit den bekannten Grautönen (Hintergrund ca. `#323232`, Panels `#535353`/
-   `#3c3c3c`, Akzent blau), kompaktere Abstände, kleinere Schrift, flache Tabs.
-   Varianten: dunkel, mittel, hell (wie die vier Photoshop-Helligkeitsstufen).
-2. Als Standard-Theme setzen.
-3. Eigenes Icon-Set im Submodul `gimp-data` (bzw. als eigenes Icon-Theme):
-   einfarbig-graue, flache Werkzeugsymbole in ähnlichem Stil, **selbst gezeichnet**.
-4. Eigener Splash-Screen und Programm-Icon.
+Umgesetzt:
+
+1. **Theme „GIMPshop“** (`themes/GIMPshop/`) als neues Standard-Theme, in drei
+   Helligkeitsstufen wie in Photoshop: Dunkel (`#323232`, Standard),
+   Mittelgrau (`#535353`) und Hell (`#F0F0F0`). Die Stufe stellt man unter
+   *Einstellungen → Oberfläche → Theme → Farbschema* ein.
+   `gimpshop.css` ergänzt Photoshop-typische Details: blaue Hervorhebung in
+   Menüs, blaue Checkboxen, Radio-Buttons und Textauswahl, blauer
+   Standard-Button in Dialogen, flache Panel-Reiter mit blauer Unterstreichung.
+   GIMPs bisheriges Theme bleibt als „GIMP Classic“ auswählbar.
+2. **Name „GIMPshop“** in Fenstertitel, Programmname (`--version`),
+   Info-Dialog („Based on GIMP …“), Willkommensdialog, Desktop-Datei und
+   Windows-Dateieigenschaften der `.exe`.
+3. **Eigenes Logo, Programm-Icon und Splash-Screen** (`data/gimpshop/`):
+   drei versetzte „Ebenen-Karten“ mit Pinselstrich, bewusst *kein*
+   Adobe-ähnliches Quadrat mit Buchstaben. SVG-Quellen liegen bei,
+   PNG/ICO sind daraus gerendert. Das Windows-`.exe`-Icon nutzt `gimpshop.ico`.
+4. **Ruhige Arbeitsfläche:** keine Wilber-Silhouette mehr im leeren
+   Bildfenster und oben in der Werkzeugleiste, stattdessen ein dezenter
+   Starthinweis (nur in stabilen Builds, Entwicklerversionen zeigen GIMPs
+   Hinweis „Unstable Development Version“).
+
+Offen:
+
+- Eigenes Werkzeug-Icon-Set. Bis dahin nutzt GIMPshop GIMPs einfarbige
+  „Symbolic“-Icons, die Photoshops grauen Icons schon recht nahe kommen.
+- Programmdatei heißt weiterhin `gimp-3.3.exe`, auch Installer-Name und
+  Linux-Icon (`org.gimp.GIMP`) sind noch unverändert. Ein Umbenennen
+  betrifft viele Build- und Installer-Skripte und kommt gesammelt mit dem
+  Installer.
+- Neue Texte (Willkommen, Starthinweis, „Based on GIMP …“) sind noch nicht
+  übersetzt und erscheinen auf Englisch.
 
 ### Phase 3 – Menüs und Begriffe
 
@@ -153,8 +177,8 @@ größten Wiedererkennungswert hat.
 
 - Soll das klassische GIMP-Layout per Schalter erhalten bleiben?
 - ~~Ziel-Plattformen~~ → **Windows** (GitHub-Action `.github/workflows/windows-build.yml`).
-- ~~Produktname~~ → **GIMPshop**. Vollständiges Umbenennen (Fenstertitel,
-  Programmname, Installer, Icon) folgt mit Phase 2.
+- ~~Produktname~~ → **GIMPshop**. Fenstertitel, Dialoge, Icon und Splash sind
+  umgestellt (Phase 2). Offen: Name der `.exe` und des Installers.
 
 ## Quellen
 

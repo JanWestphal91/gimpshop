@@ -767,7 +767,7 @@
 # Show the GIMP mascot at the top of the toolbox.  Possible values are yes
 # and no.
 # 
-# (toolbox-wilber yes)
+# (toolbox-wilber no)
 
 # Use a single toolbox button for grouped tools.  Possible values are yes and
 # no.
@@ -781,7 +781,7 @@
 
 # The name of the theme to use.  This is a string value.
 # 
-# (theme "Default")
+# (theme "GIMPshop")
 
 # The name of the theme to use.  Possible values are yes and no.
 # 

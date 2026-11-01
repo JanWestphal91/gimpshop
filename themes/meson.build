@@ -1,4 +1,5 @@
 subdir('Default')
+subdir('GIMPshop')
 subdir('System')
 
 themes = [

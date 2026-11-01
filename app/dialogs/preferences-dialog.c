@@ -2093,8 +2093,13 @@ prefs_dialog_new (Gimp       *gimp,
           }
         else if (themes_theme_is_default (gimp, themes[i]))
           {
-            /* TRANSLATORS: this is the name of GIMP's "Default" theme. */
-            name_label = gtk_label_new (C_("theme-name", "Default"));
+            /* GIMPshop: the default theme is the Photoshop-like one. */
+            name_label = gtk_label_new ("GIMPshop");
+          }
+        else if (g_strcmp0 (themes[i], "Default") == 0)
+          {
+            /* GIMPshop: upstream GIMP's own default theme. */
+            name_label = gtk_label_new ("GIMP Classic");
           }
         else
           {

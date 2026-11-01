@@ -275,11 +275,11 @@ about_dialog_create (Gimp           *gimp,
       widget = g_object_new (GTK_TYPE_ABOUT_DIALOG,
                              "role",               "gimp-about",
                              "window-position",    GTK_WIN_POS_CENTER,
-                             "title",              _("About GIMP"),
+                             "title",              "About GIMPshop",
                              "program-name",       GIMP_ACRONYM,
                              "version",            version,
                              "copyright",          copyright,
-                             "comments",           GIMP_NAME,
+                             "comments",           GIMPSHOP_BASED_ON,
                              "license",            GIMP_LICENSE,
                              "wrap-license",       TRUE,
                              "logo",               pixbuf,
@@ -452,13 +452,8 @@ about_dialog_load_logo (void)
   GFile        *file;
   GInputStream *input;
 
-  file = gimp_data_directory_file ("images",
-#ifdef GIMP_UNSTABLE
-                                   "gimp-devel-logo.png",
-#else
-                                   "gimp-logo.png",
-#endif
-                                   NULL);
+  /* GIMPshop: show the GIMPshop logo in the About dialog. */
+  file = gimp_data_directory_file ("images", "gimpshop-logo-256.png", NULL);
 
   input = G_INPUT_STREAM (g_file_read (file, NULL, NULL));
   g_object_unref (file);

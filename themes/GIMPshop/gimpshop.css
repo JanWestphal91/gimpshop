@@ -1,0 +1,110 @@
+/* GIMPshop specific interface tweaks, shared by all color schemes.
+ *
+ * Loaded after the Default theme's common*.css, so rules here win.
+ * Goal: a calmer, flatter, more compact look closer to Photoshop:
+ * blue accent for menus, checks and active tabs, flat panel tabs,
+ * slightly denser panels.
+ */
+
+/* ---------- Menus: blue highlight like Photoshop ---------- */
+
+menu menuitem:hover,
+menu menuitem:hover label,
+menu menuitem:hover accelerator,
+.context-menu menuitem:hover {
+  background-color: @accent-color;
+  color:            @accent-fg-color;
+}
+
+menuitem *:hover {
+  color:      @accent-fg-color;
+  background: transparent;
+}
+
+menu menuitem accelerator {
+  color: @dimmed-fg-color;
+}
+
+menubar > menuitem:hover {
+  background: @hover-color;
+  box-shadow: none;
+}
+
+menu menuitem,
+menu menuitem:hover {
+  padding: 3px 8px;
+}
+
+/* ---------- Panel tabs: flat, accent underline ---------- */
+
+notebook header tabs tab {
+  border:     none;
+  margin:     0;
+  min-width:  26px;
+  min-height: 24px;
+  padding:    1px 2px;
+  background-color: transparent;
+}
+
+notebook header tabs tab:hover {
+  background-color: @hover-color;
+}
+
+notebook header tabs tab:checked {
+  background-color: @extreme-selected-color;
+  box-shadow: inset 0 -2px @accent-color;
+}
+
+notebook header {
+  background-color: @selected-color;
+}
+
+/* ---------- Checks, radios, focus ---------- */
+
+checkbutton check:checked,
+treeview.view check:checked,
+menuitem check:checked {
+  background-color: @accent-color;
+  border-color:     @accent-color;
+  color:            @accent-fg-color;
+}
+
+radiobutton radio:checked {
+  background-color: @accent-color;
+  border-color:     @accent-color;
+  color:            @accent-fg-color;
+}
+
+entry selection,
+textview text selection {
+  background-color: @accent-color;
+  color:            @accent-fg-color;
+}
+
+entry:focus {
+  border-color: @accent-color;
+}
+
+/* Default buttons in dialogs ("OK", "Create", ...) */
+button.default,
+button.suggested-action {
+  background-color: @accent-color;
+  border-color:     @accent-color;
+  color:            @accent-fg-color;
+}
+
+button.default:hover,
+button.suggested-action:hover {
+  background-color: shade(@accent-color, 1.12);
+}
+
+button.default label,
+button.suggested-action label {
+  color: @accent-fg-color;
+}
+
+/* ---------- Compact toolbox ---------- */
+
+GimpToolPalette button {
+  padding: 2px;
+}

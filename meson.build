@@ -20,7 +20,7 @@ warnings = []
 # Project info
 
 prettyname = 'GIMP'
-full_name  = 'GNU Image Manipulation Program'
+full_name  = 'GIMPshop'
 
 # General version
 gimp_version = meson.project_version()

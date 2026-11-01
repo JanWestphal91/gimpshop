@@ -1,0 +1,37 @@
+/* GIMPshop theme – Medium gray (Photoshop "Medium Gray", #535353)
+ *
+ * Colors modelled after the Photoshop interface brightness levels.
+ * Widget styling comes from the Default theme; GIMPshop specific
+ * tweaks (accent color, flatter tabs, compact panels) live in
+ * gimpshop.css.
+ */
+
+@define-color fg-color               rgb(236,236,236);
+@define-color bg-color               rgb(83,83,83);
+@define-color border-color           rgb(50,50,50);
+
+@define-color dimmed-fg-color        rgb(190,190,190);
+@define-color disabled-fg-color      rgb(160,160,160);
+@define-color disabled-button-color  rgb(120,120,120);
+
+@define-color hover-color            rgb(102,102,102);
+@define-color widget-bg-color        rgb(64,64,64);
+@define-color selected-color         rgb(70,70,70);
+@define-color extreme-bg-color       rgb(72,72,72);
+@define-color extreme-selected-color rgb(110,110,110);
+
+@define-color strong-border-color    rgb(66,66,66);
+@define-color stronger-border-color  rgb(105,105,105);
+@define-color edge-border-color      rgb(48,48,48);
+
+@define-color scrollbar-slider-color rgb(150,150,150);
+@define-color scrollbar-trough-color rgb(83,83,83);
+@define-color ruler-color            rgba(60,60,60,0.35);
+
+/* GIMPshop additions */
+@define-color accent-color           rgb(38,128,235);
+@define-color accent-fg-color        white;
+@define-color canvas-bg-color        rgb(71,71,71);
+
+@import url("../Default/common-dark.css");
+@import url("gimpshop.css");

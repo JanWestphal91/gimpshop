@@ -64,7 +64,7 @@ BEGIN
 END
 
 #include "winuser.h"
-1	ICON	"gimp-data/images/logo/gimp.ico"
+1	ICON	"data/gimpshop/gimpshop.ico"
 2	ICON	"gimp-data/images/logo/fileicon-xcf.ico"
 3	ICON	"gimp-data/images/logo/fileicon.ico"
 CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "build/windows/gimp.manifest"
