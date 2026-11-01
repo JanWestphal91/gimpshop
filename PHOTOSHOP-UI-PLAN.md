@@ -1,0 +1,156 @@
+# Plan: GIMP-Oberfläche und Bedienung an Photoshop angleichen
+
+Stand: 2026-11-01 · Basis: GIMP 3.3.1 (master-Fork, GTK3)
+
+## 1. Ziel und Grundsätze
+
+Ziel ist ein GIMP-Fork, der sich für Photoshop-Nutzer vertraut anfühlt:
+Werkzeuganordnung, Tastenkürzel, Menüstruktur, Panel-Layout, Optionsleiste
+und Optik so nah an Photoshop wie technisch möglich.
+
+Grundsätze:
+
+- **Schichtweise vorgehen:** erst Konfiguration (risikoarm, schnell), dann
+  Theme/CSS, dann Menüs, zuletzt echte C-Änderungen an Widgets.
+- **Upstream-fähig bleiben:** Änderungen möglichst als eigene Defaults/Dateien
+  statt Umbauten im Kern, damit spätere Merges von GNOME/gimp nicht weh tun.
+- **Rechtlich sauber:** Kein Adobe-Logo, keine Adobe-Icons, nicht den Namen
+  „Photoshop“ im Produkt verwenden. Layout, Bedienkonzepte und Kürzel
+  nachbilden ist ok, Icons werden selbst gezeichnet (ähnlicher Stil, eigenes
+  Design).
+
+## 2. Recherche: vorhandene Bibliotheken, Add-ons und Vorarbeiten
+
+| Projekt | Was es liefert | GIMP 3? | Lizenz | Nutzen für uns |
+|---|---|---|---|---|
+| **PhotoGIMP** (Diolinux) | `shortcutsrc`, `toolrc`, `sessionrc`, `dockrc`, `gimprc`, `contextrc`, `templaterc`, `theme.css`, Splash | ja (nur 3.x) | GPL-3.0 | **Hauptquelle.** Kürzel und Werkzeugreihenfolge übernehmen wir als neue Defaults in `etc/`. |
+| `etc/ps-menurc` (früher im GIMP-Baum) | Photoshop-CS4-Kürzel | nein (Format `menurc` aus 2.x) | GPL | Nur als Referenz; GIMP 3 liest `shortcutsrc` und ignoriert `menurc`. |
+| **GimpPs** | Kürzel, Icon-Theme, Layout | nein (2.8/2.10) | GPL | Ideen für Icons/Layout, nicht direkt nutzbar. |
+| **HyperflatGraphite** | Flaches dunkles Theme für GIMP 3 | ja | prüfen | Vorlage für das CSS-Theme (Photoshop-artiges Grau). |
+| **gimp-cc-themes** (draekko) | „CC“-artige Themes | nein (GTK2) | prüfen | Nur optische Referenz für Farbwerte. |
+
+Fazit: Es gibt **keine Bibliothek**, die die Oberfläche umbaut. PhotoGIMP
+ist das brauchbarste Add-on, aber es tauscht nur Konfigurationsdateien.
+Alles, was darüber hinausgeht (Optionsleiste, Panel-Verhalten, Ebenen-Panel),
+muss im C-Code dieses Forks passieren.
+
+## 3. Was im Code wo sitzt
+
+| Bereich | Ort |
+|---|---|
+| Standard-Konfiguration (Werkzeuge, Fenster, Docks) | `etc/toolrc`, `etc/sessionrc`, `etc/gimprc.in`, `etc/templaterc` |
+| Tastenkürzel (Defaults) | `app/actions/*-actions.c` (z. B. `edit-actions.c:97`), Werkzeugkürzel in `app/tools/*` `register`-Funktionen |
+| Menüs | `menus/image-menu.ui.in.in`, `menus/*-menu.ui` |
+| Themes (GTK3-CSS) | `themes/Default/*.css`, `etc/gimp.css` |
+| Icons, Splash | Submodul `gimp-data` |
+| Werkzeugkasten | `app/widgets/gimptoolbox.c`, `gimptoolpalette.c` |
+| Werkzeugoptionen | `app/widgets/gimptooloptionseditor.c`, `app/tools/*-options.c` |
+| Bildfenster, Statusleiste | `app/display/gimpimagewindow.c`, `gimpstatusbar.c` |
+| Einzelfenster-Modus | `app/config/gimpguiconfig.c` (`single-window-mode`) |
+
+## 4. Phasenplan
+
+### Phase 1 – Defaults und Konfiguration (geringes Risiko)
+
+1. **Einzelfenster-Modus als Standard** in `gimpguiconfig.c` / `gimprc.in`.
+2. **Werkzeugreihenfolge und -gruppen** in `etc/toolrc` wie in Photoshop:
+   Verschieben → Auswahlrechteck/Ellipse → Lasso-Gruppe → Zauberstab/Schnellauswahl
+   → Freistellen → Pipette → Reparatur/Kopierstempel → Pinsel/Stift → Radierer
+   → Verlauf/Füllen → Weichzeichner/Schärfen/Wischfinger → Abwedler/Nachbelichter
+   → Pfade → Text → Hand → Zoom.
+3. **Panel-Layout** in `etc/sessionrc`: Werkzeugleiste schmal links (einspaltig),
+   rechts Dock mit oben „Farbe/Farbfelder“, Mitte „Eigenschaften/Korrekturen“,
+   unten „Ebenen/Kanäle/Pfade“; Protokoll (Undo) als Tab.
+4. **Tastenkürzel** aus PhotoGIMP übernehmen, aber als Code-Defaults in
+   `app/actions/*.c` und Werkzeug-Registrierungen eintragen (nicht nur als
+   Nutzerdatei), z. B. `Strg+T` frei transformieren, `Strg+J` Ebene duplizieren,
+   `Strg+E` auf eine Ebene reduzieren, `Strg+D` Auswahl aufheben, `Strg+Shift+I`
+   Auswahl umkehren, `Strg+L` Tonwertkorrektur, `Strg+M` Kurven, `Strg+U`
+   Farbton/Sättigung, `Strg+Alt+I` Bildgröße, `[`/`]` Pinselgröße,
+   `Strg+0`/`Strg+1` Zoom, Leertaste = Hand, `Alt` = Pipette im Malwerkzeug.
+5. **Vorlagen** (`etc/templaterc`) an die Photoshop-Standardgrößen anpassen.
+6. Zusätzlich die Datei `shortcutsrc` für Nutzer mit bestehendem Profil
+   ausliefern und beim ersten Start migrieren.
+
+### Phase 2 – Optik (Theme, Icons, Splash)
+
+1. Neues Theme `themes/Photoshop-like/` (eigener Name, z. B. „Studio Dark“)
+   mit den bekannten Grautönen (Hintergrund ca. `#323232`, Panels `#535353`/
+   `#3c3c3c`, Akzent blau), kompaktere Abstände, kleinere Schrift, flache Tabs.
+   Varianten: dunkel, mittel, hell (wie die vier Photoshop-Helligkeitsstufen).
+2. Als Standard-Theme setzen.
+3. Eigenes Icon-Set im Submodul `gimp-data` (bzw. als eigenes Icon-Theme):
+   einfarbig-graue, flache Werkzeugsymbole in ähnlichem Stil, **selbst gezeichnet**.
+4. Eigener Splash-Screen und Programm-Icon.
+
+### Phase 3 – Menüs und Begriffe
+
+1. `menus/image-menu.ui.in.in` umstrukturieren auf
+   Datei · Bearbeiten · Bild · Ebene · Schrift · Auswahl · Filter · Ansicht · Fenster · Hilfe.
+   - „Bild > Korrekturen“ bündelt Helligkeit/Kontrast, Tonwerte, Kurven,
+     Belichtung, Farbton/Sättigung usw. (heute unter „Farben“).
+   - „Ebene“ bekommt Neu, Duplizieren, Maske, Schnittmaske, Smart-Objekt-Ersatz,
+     Anordnen, Zusammenfügen.
+   - „Schrift“ als neues Menü mit Text-Aktionen.
+   - „Fenster“ zeigt alle dockbaren Dialoge (heute „Fenster > Andockbare Dialoge“).
+2. Begriffe in `po/de.po` (und `po/en` via Strings) angleichen: „Ebene
+   duplizieren“, „Freistellen“, „Auf Hintergrundebene reduzieren“, „Deckkraft“
+   / „Fläche“ usw.
+
+### Phase 4 – Bedienung im C-Code (größter Aufwand, größter Effekt)
+
+1. **Optionsleiste oben** (wichtigstes Photoshop-Merkmal): die Werkzeugoptionen
+   als horizontale Leiste unter der Menüleiste im Bildfenster
+   (`gimpimagewindow.c`). Dafür eine horizontale Darstellung der Options-GUIs
+   in `app/tools/*-options.c` bauen (kompakte Widgets: Größe, Härte,
+   Deckkraft, Fluss, Modus). Das klassische Optionen-Dock bleibt optional.
+2. **Werkzeugkasten:** einspaltig, Gruppen per Rechtsklick/Langklick ausklappen,
+   Vorder-/Hintergrundfarbe unten, Maskierungsmodus-Knopf (Quick Mask) darunter.
+3. **Ebenen-Panel:** Mischmodus-Dropdown + Deckkraft + Fläche oben,
+   Sperr-Knöpfe, unten Knopfleiste (fx/Maske/Korrekturebene/Gruppe/Neu/Löschen),
+   Alt-Klick auf Auge = andere ausblenden.
+4. **Verhalten:**
+   - Verschieben-Werkzeug mit „automatisch auswählen“ und Transformationsrahmen.
+   - Strg+T: „frei transformieren“ als ein Werkzeug (Unified Transform) mit
+     Enter zum Bestätigen, Esc zum Abbrechen.
+   - Ebenen standardmäßig auf Bildgröße, Freistellen löscht Pixel optional.
+   - Neue Textebene per Klick, Bestätigen mit Strg+Enter.
+5. **Statusleiste** unten links mit Zoomfaktor und Dokumentinfo.
+6. **Korrekturebenen**: GIMP 3 hat nicht-destruktive Filter (NDE). Diese im
+   Ebenen-Panel als „Korrekturebene“-Knopf zugänglich machen.
+
+### Phase 5 – Qualität und Verteilung
+
+- Build mit Meson in CI (Linux), Smoke-Test, Screenshots pro Phase.
+- Umschalter in den Einstellungen: „Photoshop-artiges Layout / klassisches GIMP“,
+  damit Altnutzer nicht ausgesperrt werden.
+- Regelmäßig `upstream/master` mergen; Änderungen möglichst in eigenen Dateien halten.
+
+## 5. Reihenfolge und grober Aufwand
+
+| Phase | Aufwand | Wirkung |
+|---|---|---|
+| 1 Defaults/Kürzel | klein (Tage) | hoch |
+| 2 Theme/Icons | mittel (Icons kosten Zeit) | hoch |
+| 3 Menüs/Begriffe | mittel | mittel–hoch |
+| 4 Optionsleiste, Ebenen-Panel, Verhalten | groß (Wochen) | sehr hoch |
+| 5 CI/Umschalter | klein–mittel | Pflege |
+
+Vorschlag: mit Phase 1 starten (PhotoGIMP-Werte als Code-Defaults), dann
+Phase 2 (Theme), danach die Optionsleiste aus Phase 4 vorziehen, weil sie den
+größten Wiedererkennungswert hat.
+
+## 6. Offene Fragen
+
+- Soll das klassische GIMP-Layout per Schalter erhalten bleiben?
+- Ziel-Plattformen (nur Linux oder auch Windows/macOS-Builds)?
+- Produktname und Icon (wegen Markenrecht nicht „Photoshop“)?
+
+## Quellen
+
+- PhotoGIMP: https://github.com/Diolinux/PhotoGIMP
+- HyperflatGraphite (GIMP-3-Theme): https://piefed.jeena.net/post/347986
+- gimp-cc-themes: https://github.com/draekko/gimp-cc-themes
+- `menurc` → `shortcutsrc` in GIMP 3: https://www.gimp-forum.net/printthread.php?tid=10872
+- GimpPs / Photoshop-Kürzel für 2.10: https://www.linuxuprising.com/2018/11/configure-gimp-210-to-use-photoshop.html
+- Theme/Icon-Einstellungen in GIMP 3: https://www.cloudspress.com/how-to-make-gimp-feel-more-like-photoshop/
