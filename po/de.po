@@ -5820,8 +5820,8 @@ msgstr "Die Druckauflösung anpassen"
 
 #: app/actions/image-actions.c:121
 msgctxt "image-action"
-msgid "_Scale Image..."
-msgstr "Bild _skalieren …"
+msgid "_Image Size..."
+msgstr "_Bildgröße …"
 
 #: app/actions/image-actions.c:122
 msgctxt "image-action"
@@ -8228,8 +8228,8 @@ msgstr "Alles auswählen"
 
 #: app/actions/select-actions.c:50
 msgctxt "select-action"
-msgid "_None"
-msgstr "Nichts"
+msgid "_Deselect"
+msgstr "Auswahl _aufheben"
 
 #: app/actions/select-actions.c:51
 msgctxt "select-action"
@@ -8238,8 +8238,8 @@ msgstr "Die Auswahl verwerfen"
 
 #: app/actions/select-actions.c:56
 msgctxt "select-action"
-msgid "_Invert"
-msgstr "_Invertieren"
+msgid "_Inverse"
+msgstr "Auswahl _umkehren"
 
 #: app/actions/select-actions.c:57
 msgctxt "select-action"
@@ -8269,7 +8269,7 @@ msgstr "Die Auswahl kopieren und als schwebende Auswahl einfügen"
 #: app/actions/select-actions.c:74
 msgctxt "select-action"
 msgid "Fea_ther..."
-msgstr "A_usblenden …"
+msgstr "_Weiche Kante …"
 
 #: app/actions/select-actions.c:76
 msgctxt "select-action"
@@ -8288,8 +8288,8 @@ msgstr "Unschärfe von der Auswahl entfernen"
 
 #: app/actions/select-actions.c:87
 msgctxt "select-action"
-msgid "S_hrink..."
-msgstr "Ver_kleinern …"
+msgid "_Contract..."
+msgstr "_Verkleinern …"
 
 #: app/actions/select-actions.c:88
 msgctxt "select-action"
@@ -8298,8 +8298,8 @@ msgstr "Auswahl zusammenziehen"
 
 #: app/actions/select-actions.c:93
 msgctxt "select-action"
-msgid "_Grow..."
-msgstr "Ver_größern …"
+msgid "_Expand..."
+msgstr "_Erweitern …"
 
 #: app/actions/select-actions.c:94
 msgctxt "select-action"
@@ -8941,8 +8941,8 @@ msgstr "Zurückwechseln zum letzten aktivierten Werkzeug"
 
 #: app/actions/tools-actions.c:57
 msgctxt "tools-action"
-msgid "_By Color"
-msgstr "Nach _Farbe"
+msgid "Color _Range..."
+msgstr "_Farbbereich …"
 
 #: app/actions/tools-actions.c:58
 msgctxt "tools-action"
@@ -32672,3 +32672,28 @@ msgstr "Journal-Menü"
 
 #~ msgid "Whether data is being read from the swap"
 #~ msgstr "Gibt an, ob Daten aus dem Auslagerungsspeicher gelesen werden"
+
+#. GIMPshop additions
+msgctxt "image-action"
+msgid "_Adjustments"
+msgstr "_Korrekturen"
+
+msgctxt "text-tool-action"
+msgid "T_ype"
+msgstr "_Schrift"
+
+msgctxt "select-action"
+msgid "_Modify"
+msgstr "Auswahl _verändern"
+
+msgid "Based on GIMP, the GNU Image Manipulation Program"
+msgstr "Basiert auf GIMP, dem GNU Image Manipulation Program"
+
+msgid ""
+"<big>Drop an image here</big>\n"
+"\n"
+"or press Ctrl+N (New) / Ctrl+O (Open)"
+msgstr ""
+"<big>Bild hierher ziehen</big>\n"
+"\n"
+"oder Strg+N (Neu) / Strg+O (Öffnen) drücken"

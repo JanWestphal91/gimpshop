@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 # runs real gimp under a dogtail HermeticSession, closes the welcome dialog,
-# opens Windows > Dockable Dialogs > Colors, focuses the live hex-triplet
+# opens Windows > Colors, focuses the live hex-triplet
 # entry (default 000000, same widget color-swap.py reads), selects all and
 # types a new hex value, hits Return, and checks the entry now reads that
 # value back.
@@ -63,9 +63,9 @@ with gimp_session(GIMP, MUTTER, install_input=True) as (session, app, proc):
             node = found
         time.sleep(0.3)
 
-    # --- step 3: Windows > Dockable Dialogs > Colors -----------------------
+    # --- step 3: Windows > Colors -----------------------
 
-    click_menu_path("Windows", "Dockable Dialogs", "Colors")
+    click_menu_path("Windows", "Colors")
 
     # --- step 4: find the hex entry -----------------------------------
 

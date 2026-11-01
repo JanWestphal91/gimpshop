@@ -54,7 +54,7 @@ static const GimpActionEntry tools_actions[] =
 static const GimpStringActionEntry tools_alternative_actions[] =
 {
   { "tools-by-color-select-short", GIMP_ICON_TOOL_BY_COLOR_SELECT,
-    NC_("tools-action", "_By Color"), NULL, { NULL },
+    NC_("tools-action", "Color _Range..."), NULL, { NULL },
     NC_("tools-action", "Select regions with similar colors"),
     "gimp-by-color-select-tool",
     GIMP_HELP_TOOL_BY_COLOR_SELECT },

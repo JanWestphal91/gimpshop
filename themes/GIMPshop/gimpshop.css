@@ -8,16 +8,17 @@
 
 /* ---------- Menus: blue highlight like Photoshop ---------- */
 
+/* Only the hovered item itself is colored; its label inherits the text
+ * color. Do not target "label" descendants here: submenus are CSS
+ * descendants of the hovered item and would get a blue box too.
+ */
 menu menuitem:hover,
-menu menuitem:hover label,
-menu menuitem:hover accelerator,
 .context-menu menuitem:hover {
   background-color: @accent-color;
   color:            @accent-fg-color;
 }
 
 menuitem *:hover {
-  color:      @accent-fg-color;
   background: transparent;
 }
 

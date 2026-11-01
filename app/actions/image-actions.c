@@ -118,7 +118,7 @@ static const GimpActionEntry image_actions[] =
     GIMP_HELP_IMAGE_PRINT_SIZE },
 
   { "image-scale", GIMP_ICON_OBJECT_SCALE,
-    NC_("image-action", "_Scale Image..."), NULL, { "<primary><alt>I", NULL },
+    NC_("image-action", "_Image Size..."), NULL, { "<primary><alt>I", NULL },
     NC_("image-action", "Change the size of the image content"),
     image_scale_cmd_callback,
     GIMP_HELP_IMAGE_SCALE },

@@ -147,179 +147,91 @@
       </section>
     </submenu>
 
-    <!-- Select menu -->
-
-    <submenu>
-      <attribute name="label" translatable="yes" context="select-action">_Select</attribute>
-      <section>
-        <item><attribute name="action">app.select-all</attribute></item>
-        <item><attribute name="action">app.select-none</attribute></item>
-        <item><attribute name="action">app.select-invert</attribute></item>
-        <submenu>
-          <attribute name="label" translatable="yes" context="view-action">_Float</attribute>
-          <item><attribute name="action">app.select-cut-float</attribute></item>
-          <item><attribute name="action">app.select-copy-float</attribute></item>
-        </submenu>
-        <item><attribute name="action">app.tools-by-color-select-short</attribute></item>
-        <item><attribute name="action">app.paths-selection-from-paths</attribute></item>
-        <item><attribute name="action">app.dialogs-selection-editor</attribute></item>
-      </section>
-      <section>
-        <attribute name="section-name" translatable="no">Modify</attribute>
-        <item><attribute name="action">app.select-feather</attribute></item>
-        <item><attribute name="action">app.select-sharpen</attribute></item>
-        <item><attribute name="action">app.select-shrink</attribute></item>
-        <item><attribute name="action">app.select-grow</attribute></item>
-        <item><attribute name="action">app.select-border</attribute></item>
-        <item><attribute name="action">app.select-flood</attribute></item>
-      </section>
-      <section>
-        <item><attribute name="action">app.quick-mask-toggle</attribute></item>
-        <item><attribute name="action">app.select-save</attribute></item>
-        <item><attribute name="action">app.paths-selection-to-path</attribute></item>
-      </section>
-    </submenu>
-
-    <!-- View menu -->
-
-    <submenu>
-      <attribute name="label" translatable="yes" context="view-action">_View</attribute>
-      <item><attribute name="action">app.view-new</attribute></item>
-      <item><attribute name="action">app.view-show-all</attribute></item>
-      <item><attribute name="action">app.view-dot-for-dot</attribute></item>
-      <submenu>
-        <attribute name="label" translatable="yes" context="view-action">_Zoom</attribute>
-        <section>
-          <item><attribute name="action">app.view-zoom-revert</attribute></item>
-          <item><attribute name="action">app.view-zoom-out</attribute></item>
-          <item><attribute name="action">app.view-zoom-in</attribute></item>
-          <item><attribute name="action">app.view-zoom-fit-in</attribute></item>
-          <item><attribute name="action">app.view-zoom-fill</attribute></item>
-          <item><attribute name="action">app.view-zoom-selection</attribute></item>
-        </section>
-        <section>
-          <item><attribute name="action">app.view-zoom-16-1</attribute></item>
-          <item><attribute name="action">app.view-zoom-8-1</attribute></item>
-          <item><attribute name="action">app.view-zoom-4-1</attribute></item>
-          <item><attribute name="action">app.view-zoom-2-1</attribute></item>
-          <item><attribute name="action">app.view-zoom-1-1</attribute></item>
-          <item><attribute name="action">app.view-zoom-1-2</attribute></item>
-          <item><attribute name="action">app.view-zoom-1-4</attribute></item>
-          <item><attribute name="action">app.view-zoom-1-8</attribute></item>
-          <item><attribute name="action">app.view-zoom-1-16</attribute></item>
-        </section>
-        <section>
-          <item><attribute name="action">app.view-zoom-other</attribute></item>
-        </section>
-      </submenu>
-      <submenu>
-        <attribute name="label" translatable="yes" context="view-action">_Flip &amp; Rotate</attribute>
-        <section>
-          <item><attribute name="action">app.view-reset</attribute></item>
-        </section>
-        <section>
-          <item><attribute name="action">app.view-flip-horizontally</attribute></item>
-          <item><attribute name="action">app.view-flip-vertically</attribute></item>
-        </section>
-        <section>
-          <item><attribute name="action">app.view-rotate-15</attribute></item>
-          <item><attribute name="action">app.view-rotate-345</attribute></item>
-          <item><attribute name="action">app.view-rotate-90</attribute></item>
-          <item><attribute name="action">app.view-rotate-270</attribute></item>
-          <item><attribute name="action">app.view-rotate-180</attribute></item>
-        </section>
-        <section>
-          <item><attribute name="action">app.view-rotate-other</attribute></item>
-        </section>
-      </submenu>
-      <item><attribute name="action">app.view-scroll-center</attribute></item>
-      <section>
-        <item><attribute name="action">app.view-shrink-wrap</attribute></item>
-        <item><attribute name="action">app.view-fullscreen</attribute></item>
-        <submenu>
-          <attribute name="label" translatable="yes" context="view-action">Move to Screen</attribute>
-          <item><attribute name="action">app.view-open-display</attribute></item>
-          <!-- TODO: screen list. -->
-        </submenu>
-      </section>
-      <section>
-        <item><attribute name="action">app.view-navigation-window</attribute></item>
-        <item><attribute name="action">app.view-display-filters</attribute></item>
-        <submenu>
-          <attribute name="label" translatable="yes" context="view-action">_Color Management</attribute>
-          <section>
-            <item><attribute name="action">app.view-color-management-enable</attribute></item>
-            <item><attribute name="action">app.view-color-management-softproof</attribute></item>
-          </section>
-          <section>
-            <submenu>
-              <attribute name="label" translatable="yes" context="view-action">Display _Rendering Intent</attribute>
-              <item><attribute name="action">app.view-display-intent-perceptual</attribute></item>
-              <item><attribute name="action">app.view-display-intent-relative-colorimetric</attribute></item>
-              <item><attribute name="action">app.view-display-intent-saturation</attribute></item>
-              <item><attribute name="action">app.view-display-intent-absolute-colorimetric</attribute></item>
-            </submenu>
-            <item><attribute name="action">app.view-display-black-point-compensation</attribute></item>
-          </section>
-          <section>
-            <item><attribute name="action">app.view-softproof-gamut-check</attribute></item>
-            <item><attribute name="action">app.view-color-management-reset</attribute></item>
-          </section>
-        </submenu>
-      </section>
-      <section>
-        <item><attribute name="action">app.view-show-selection</attribute></item>
-        <item><attribute name="action">app.view-show-layer-boundary</attribute></item>
-        <item><attribute name="action">app.view-show-canvas-boundary</attribute></item>
-        <item><attribute name="action">app.view-show-guides</attribute></item>
-        <item><attribute name="action">app.view-show-grid</attribute></item>
-        <item><attribute name="action">app.view-show-sample-points</attribute></item>
-      </section>
-      <section>
-        <item><attribute name="action">app.view-snap-to-guides</attribute></item>
-        <item><attribute name="action">app.view-snap-to-grid</attribute></item>
-        <item><attribute name="action">app.view-snap-to-canvas</attribute></item>
-        <item><attribute name="action">app.view-snap-to-path</attribute></item>
-        <item><attribute name="action">app.view-snap-to-bbox</attribute></item>
-        <item><attribute name="action">app.view-snap-to-equidistance</attribute></item>
-      </section>
-      <section>
-        <submenu>
-          <attribute name="label" translatable="yes" context="view-action">_Padding Color</attribute>
-          <section>
-            <item><attribute name="action">app.view-padding-color-theme</attribute></item>
-            <item><attribute name="action">app.view-padding-color-light-check</attribute></item>
-            <item><attribute name="action">app.view-padding-color-dark-check</attribute></item>
-            <item><attribute name="action">app.view-padding-color-custom</attribute></item>
-          </section>
-          <section>
-            <item><attribute name="action">app.view-padding-color-in-show-all</attribute></item>
-          </section>
-          <section>
-            <item><attribute name="action">app.view-padding-color-prefs</attribute></item>
-          </section>
-        </submenu>
-        <item><attribute name="action">app.view-show-menubar</attribute></item>
-        <item><attribute name="action">app.view-show-rulers</attribute></item>
-        <item><attribute name="action">app.view-show-scrollbars</attribute></item>
-        <item><attribute name="action">app.view-show-statusbar</attribute></item>
-      </section>
-    </submenu>
-
-    <!-- Image menu -->
+    <!-- Image menu (GIMPshop: includes Adjustments, formerly the Colors menu) -->
 
     <submenu>
       <attribute name="label" translatable="yes" context="image-action">_Image</attribute>
-      <section>
-        <attribute name="section-name" translatable="no">New</attribute>
-        <item><attribute name="action">app.image-duplicate</attribute></item>
-      </section>
       <section>
         <submenu>
           <attribute name="label" translatable="yes" context="image-action">_Mode</attribute>
           <item><attribute name="action">app.image-convert-rgb</attribute></item>
           <item><attribute name="action">app.image-convert-grayscale</attribute></item>
           <item><attribute name="action">app.image-convert-indexed</attribute></item>
+        </submenu>
+        <submenu>
+          <attribute name="label" translatable="yes" context="image-action">_Adjustments</attribute>
+          <section>
+            <item><attribute name="action">app.filters-color-balance</attribute></item>
+            <item><attribute name="action">app.filters-color-temperature</attribute></item>
+            <item><attribute name="action">app.filters-hue-chroma</attribute></item>
+            <item><attribute name="action">app.filters-hue-saturation</attribute></item>
+            <item><attribute name="action">app.filters-saturation</attribute></item>
+            <item><attribute name="action">app.filters-exposure</attribute></item>
+            <item><attribute name="action">app.filters-shadows-highlights</attribute></item>
+            <item><attribute name="action">app.filters-brightness-contrast</attribute></item>
+            <item><attribute name="action">app.filters-levels</attribute></item>
+            <item><attribute name="action">app.filters-curves</attribute></item>
+          </section>
+          <section>
+            <attribute name="section-name" translatable="no">Invert</attribute>
+            <item><attribute name="action">app.filters-invert-perceptual</attribute></item>
+            <item><attribute name="action">app.filters-invert-linear</attribute></item>
+            <item><attribute name="action">app.filters-invert-value</attribute></item>
+          </section>
+          <section>
+            <submenu>
+              <attribute name="label" translatable="yes" context="image-action">_Auto</attribute>
+              <item><attribute name="action">app.drawable-equalize</attribute></item>
+              <item><attribute name="action">app.drawable-levels-stretch</attribute></item>
+              <item><attribute name="action">app.filters-stretch-contrast</attribute></item>
+              <item><attribute name="action">app.filters-stretch-contrast-hsv</attribute></item>
+              <item><attribute name="action">app.filters-color-enhance</attribute></item>
+            </submenu>
+            <submenu>
+              <attribute name="label" translatable="yes" context="image-action">C_omponents</attribute>
+              <item><attribute name="action">app.filters-channel-mixer</attribute></item>
+              <item><attribute name="action">app.filters-component-extract</attribute></item>
+              <item><attribute name="action">app.filters-mono-mixer</attribute></item>
+            </submenu>
+            <submenu>
+              <attribute name="label" translatable="yes" context="image-action">D_esaturate</attribute>
+              <item><attribute name="action">app.filters-c2g</attribute></item>
+              <item><attribute name="action">app.filters-desaturate</attribute></item>
+              <item><attribute name="action">app.filters-mono-mixer</attribute></item>
+              <item><attribute name="action">app.filters-sepia</attribute></item>
+            </submenu>
+            <submenu>
+              <attribute name="label" translatable="yes" context="image-action">_Map</attribute>
+              <section>
+                <attribute name="section-name" translatable="no">Colormap</attribute>
+              </section>
+              <section>
+                <item><attribute name="action">app.filters-alien-map</attribute></item>
+                <item><attribute name="action">app.filters-color-exchange</attribute></item>
+                <item><attribute name="action">app.filters-color-rotate</attribute></item>
+              </section>
+            </submenu>
+            <submenu>
+              <attribute name="label" translatable="yes" context="image-action">_Tone Mapping</attribute>
+              <item><attribute name="action">app.filters-fattal-2002</attribute></item>
+              <item><attribute name="action">app.filters-mantiuk-2006</attribute></item>
+              <item><attribute name="action">app.filters-reinhard-2005</attribute></item>
+              <item><attribute name="action">app.filters-stress</attribute></item>
+            </submenu>
+            <submenu>
+              <attribute name="label" translatable="yes" context="image-action">I_nfo</attribute>
+              <item><attribute name="action">app.dialogs-histogram</attribute></item>
+            </submenu>
+          </section>
+          <section>
+            <attribute name="section-name" translatable="no">Modify</attribute>
+            <item><attribute name="action">app.filters-threshold</attribute></item>
+            <item><attribute name="action">app.filters-colorize</attribute></item>
+            <item><attribute name="action">app.filters-posterize</attribute></item>
+            <item><attribute name="action">app.filters-color-to-alpha</attribute></item>
+            <item><attribute name="action">app.filters-dither</attribute></item>
+            <item><attribute name="action">app.filters-rgb-clip</attribute></item>
+          </section>
         </submenu>
         <submenu>
           <attribute name="label" translatable="yes" context="image-action">_Encoding</attribute>
@@ -366,6 +278,12 @@
         </submenu>
       </section>
       <section>
+        <attribute name="section-name" translatable="no">Auto</attribute>
+        <item><attribute name="action">app.drawable-levels-stretch</attribute></item>
+        <item><attribute name="action">app.filters-stretch-contrast</attribute></item>
+        <item><attribute name="action">app.filters-color-enhance</attribute></item>
+      </section>
+      <section>
         <!-- XXX This section should actually start after the submenu and there should be a "Resize" section first but we want to avoid the separators. -->
         <attribute name="section-name" translatable="no">Scale</attribute>
         <submenu>
@@ -383,11 +301,11 @@
             <item><attribute name="action">app.tools-rotate-image-arbitrary</attribute></item>
           </section>
         </submenu>
+        <item><attribute name="action">app.image-scale</attribute></item>
         <item><attribute name="action">app.image-resize</attribute></item>
         <item><attribute name="action">app.image-resize-to-layers</attribute></item>
         <item><attribute name="action">app.image-resize-to-selection</attribute></item>
         <item><attribute name="action">app.image-print-size</attribute></item>
-        <item><attribute name="action">app.image-scale</attribute></item>
       </section>
       <section>
         <attribute name="section-name" translatable="no">Crop</attribute>
@@ -399,6 +317,10 @@
         <attribute name="section-name" translatable="no">Arrange</attribute>
         <item><attribute name="action">app.image-merge-layers</attribute></item>
         <item><attribute name="action">app.image-flatten</attribute></item>
+      </section>
+      <section>
+        <attribute name="section-name" translatable="no">New</attribute>
+        <item><attribute name="action">app.image-duplicate</attribute></item>
       </section>
       <section>
         <submenu>
@@ -528,154 +450,55 @@
       </section>
     </submenu>
 
-    <!-- Colors Menu -->
+    <!-- Type menu (GIMPshop) -->
 
     <submenu>
-      <attribute name="label" translatable="yes" context="image-action">_Colors</attribute>
+      <attribute name="label" translatable="yes" context="text-tool-action">T_ype</attribute>
       <section>
-        <item><attribute name="action">app.filters-color-balance</attribute></item>
-        <item><attribute name="action">app.filters-color-temperature</attribute></item>
-        <item><attribute name="action">app.filters-hue-chroma</attribute></item>
-        <item><attribute name="action">app.filters-hue-saturation</attribute></item>
-        <item><attribute name="action">app.filters-saturation</attribute></item>
-        <item><attribute name="action">app.filters-exposure</attribute></item>
-        <item><attribute name="action">app.filters-shadows-highlights</attribute></item>
-        <item><attribute name="action">app.filters-brightness-contrast</attribute></item>
-        <item><attribute name="action">app.filters-levels</attribute></item>
-        <item><attribute name="action">app.filters-curves</attribute></item>
+        <item><attribute name="action">app.tools-text</attribute></item>
+        <item><attribute name="action">app.dialogs-fonts</attribute></item>
       </section>
       <section>
-        <attribute name="section-name" translatable="no">Invert</attribute>
-        <item><attribute name="action">app.filters-invert-perceptual</attribute></item>
-        <item><attribute name="action">app.filters-invert-linear</attribute></item>
-        <item><attribute name="action">app.filters-invert-value</attribute></item>
-      </section>
-      <section>
-        <submenu>
-          <attribute name="label" translatable="yes" context="image-action">_Auto</attribute>
-          <item><attribute name="action">app.drawable-equalize</attribute></item>
-          <item><attribute name="action">app.drawable-levels-stretch</attribute></item>
-          <item><attribute name="action">app.filters-stretch-contrast</attribute></item>
-          <item><attribute name="action">app.filters-stretch-contrast-hsv</attribute></item>
-          <item><attribute name="action">app.filters-color-enhance</attribute></item>
-        </submenu>
-        <submenu>
-          <attribute name="label" translatable="yes" context="image-action">C_omponents</attribute>
-          <item><attribute name="action">app.filters-channel-mixer</attribute></item>
-          <item><attribute name="action">app.filters-component-extract</attribute></item>
-          <item><attribute name="action">app.filters-mono-mixer</attribute></item>
-        </submenu>
-        <submenu>
-          <attribute name="label" translatable="yes" context="image-action">D_esaturate</attribute>
-          <item><attribute name="action">app.filters-c2g</attribute></item>
-          <item><attribute name="action">app.filters-desaturate</attribute></item>
-          <item><attribute name="action">app.filters-mono-mixer</attribute></item>
-          <item><attribute name="action">app.filters-sepia</attribute></item>
-        </submenu>
-        <submenu>
-          <attribute name="label" translatable="yes" context="image-action">_Map</attribute>
-          <section>
-            <attribute name="section-name" translatable="no">Colormap</attribute>
-          </section>
-          <section>
-            <item><attribute name="action">app.filters-alien-map</attribute></item>
-            <item><attribute name="action">app.filters-color-exchange</attribute></item>
-            <item><attribute name="action">app.filters-color-rotate</attribute></item>
-          </section>
-        </submenu>
-        <submenu>
-          <attribute name="label" translatable="yes" context="image-action">_Tone Mapping</attribute>
-          <item><attribute name="action">app.filters-fattal-2002</attribute></item>
-          <item><attribute name="action">app.filters-mantiuk-2006</attribute></item>
-          <item><attribute name="action">app.filters-reinhard-2005</attribute></item>
-          <item><attribute name="action">app.filters-stress</attribute></item>
-        </submenu>
-        <submenu>
-          <attribute name="label" translatable="yes" context="image-action">I_nfo</attribute>
-          <item><attribute name="action">app.dialogs-histogram</attribute></item>
-        </submenu>
-      </section>
-      <section>
-        <attribute name="section-name" translatable="no">Modify</attribute>
-        <item><attribute name="action">app.filters-threshold</attribute></item>
-        <item><attribute name="action">app.filters-colorize</attribute></item>
-        <item><attribute name="action">app.filters-posterize</attribute></item>
-        <item><attribute name="action">app.filters-color-to-alpha</attribute></item>
-        <item><attribute name="action">app.filters-dither</attribute></item>
-        <item><attribute name="action">app.filters-rgb-clip</attribute></item>
+        <item><attribute name="action">app.layers-text-to-path</attribute></item>
+        <item><attribute name="action">app.layers-text-along-path</attribute></item>
+        <item><attribute name="action">app.layers-rasterize</attribute></item>
+        <item><attribute name="action">app.layers-revert-rasterize</attribute></item>
       </section>
     </submenu>
 
-    <!-- Tools Menu -->
+    <!-- Select menu -->
 
     <submenu>
-      <attribute name="label" translatable="yes" context="tools-action">_Tools</attribute>
+      <attribute name="label" translatable="yes" context="select-action">_Select</attribute>
       <section>
+        <item><attribute name="action">app.select-all</attribute></item>
+        <item><attribute name="action">app.select-none</attribute></item>
+        <item><attribute name="action">app.select-invert</attribute></item>
         <submenu>
-          <attribute name="label" translatable="yes" context="tools-action">_Selection Tools</attribute>
-          <item><attribute name="action">app.tools-rect-select</attribute></item>
-          <item><attribute name="action">app.tools-ellipse-select</attribute></item>
-          <item><attribute name="action">app.tools-free-select</attribute></item>
-          <item><attribute name="action">app.tools-foreground-select</attribute></item>
-          <item><attribute name="action">app.tools-fuzzy-select</attribute></item>
-          <item><attribute name="action">app.tools-by-color-select</attribute></item>
-          <item><attribute name="action">app.tools-iscissors</attribute></item>
-          <!-- Enable when the tool leaves the playground
-          <item><attribute name="action">app.tools-paint-select</attribute></item>
-          -->
+          <attribute name="label" translatable="yes" context="view-action">_Float</attribute>
+          <item><attribute name="action">app.select-cut-float</attribute></item>
+          <item><attribute name="action">app.select-copy-float</attribute></item>
         </submenu>
-        <submenu>
-          <attribute name="label" translatable="yes" context="tools-action">_Paint Tools</attribute>
-          <item><attribute name="action">app.tools-bucket-fill</attribute></item>
-          <item><attribute name="action">app.tools-gradient</attribute></item>
-          <item><attribute name="action">app.tools-pencil</attribute></item>
-          <item><attribute name="action">app.tools-paintbrush</attribute></item>
-          <item><attribute name="action">app.tools-eraser</attribute></item>
-          <item><attribute name="action">app.tools-airbrush</attribute></item>
-          <item><attribute name="action">app.tools-ink</attribute></item>
-          <item><attribute name="action">app.tools-mypaint-brush</attribute></item>
-          <item><attribute name="action">app.tools-shape</attribute></item>
-          <item><attribute name="action">app.tools-clone</attribute></item>
-          <item><attribute name="action">app.tools-heal</attribute></item>
-          <item><attribute name="action">app.tools-perspective-clone</attribute></item>
-          <item><attribute name="action">app.tools-convolve</attribute></item>
-          <item><attribute name="action">app.tools-smudge</attribute></item>
-          <item><attribute name="action">app.tools-dodge-burn</attribute></item>
-        </submenu>
-        <submenu>
-          <attribute name="label" translatable="yes" context="tools-action">_Transform Tools</attribute>
-          <item><attribute name="action">app.tools-align</attribute></item>
-          <item><attribute name="action">app.tools-move</attribute></item>
-          <item><attribute name="action">app.tools-crop</attribute></item>
-          <item><attribute name="action">app.tools-rotate</attribute></item>
-          <item><attribute name="action">app.tools-scale</attribute></item>
-          <item><attribute name="action">app.tools-shear</attribute></item>
-          <item><attribute name="action">app.tools-perspective</attribute></item>
-          <item><attribute name="action">app.tools-transform-3d</attribute></item>
-          <item><attribute name="action">app.tools-unified-transform</attribute></item>
-          <item><attribute name="action">app.tools-handle-transform</attribute></item>
-          <item><attribute name="action">app.tools-flip</attribute></item>
-          <item><attribute name="action">app.tools-cage</attribute></item>
-          <item><attribute name="action">app.tools-warp</attribute></item>
-          <!-- Enable when the tool leaves the playground
-          <item><attribute name="action">app.tools-n-point-deformation</attribute></item>
-          -->
-        </submenu>
-        <item><attribute name="action">app.tools-path</attribute></item>
-        <item><attribute name="action">app.tools-text</attribute></item>
+        <item><attribute name="action">app.tools-by-color-select-short</attribute></item>
+        <item><attribute name="action">app.paths-selection-from-paths</attribute></item>
+        <item><attribute name="action">app.dialogs-selection-editor</attribute></item>
       </section>
       <section>
-        <item><attribute name="action">app.tools-color-picker</attribute></item>
-        <item><attribute name="action">app.tools-measure</attribute></item>
-        <item><attribute name="action">app.tools-zoom</attribute></item>
+        <attribute name="section-name" translatable="no">Modify</attribute>
+        <submenu>
+          <attribute name="label" translatable="yes" context="select-action">_Modify</attribute>
+          <item><attribute name="action">app.select-border</attribute></item>
+          <item><attribute name="action">app.select-grow</attribute></item>
+          <item><attribute name="action">app.select-shrink</attribute></item>
+          <item><attribute name="action">app.select-feather</attribute></item>
+        </submenu>
+        <item><attribute name="action">app.select-sharpen</attribute></item>
+        <item><attribute name="action">app.select-flood</attribute></item>
       </section>
       <section>
-        <item><attribute name="action">app.tools-gegl</attribute></item>
-      </section>
-      <section>
-        <item><attribute name="action">app.dialogs-toolbox</attribute></item>
-        <item><attribute name="action">app.context-colors-default</attribute></item>
-        <item><attribute name="action">app.context-colors-swap</attribute></item>
+        <item><attribute name="action">app.quick-mask-toggle</attribute></item>
+        <item><attribute name="action">app.select-save</attribute></item>
+        <item><attribute name="action">app.paths-selection-to-path</attribute></item>
       </section>
     </submenu>
 
@@ -865,6 +688,205 @@
       </section>
     </submenu>
 
+    <!-- View menu -->
+
+    <submenu>
+      <attribute name="label" translatable="yes" context="view-action">_View</attribute>
+      <item><attribute name="action">app.view-new</attribute></item>
+      <item><attribute name="action">app.view-show-all</attribute></item>
+      <item><attribute name="action">app.view-dot-for-dot</attribute></item>
+      <submenu>
+        <attribute name="label" translatable="yes" context="view-action">_Zoom</attribute>
+        <section>
+          <item><attribute name="action">app.view-zoom-revert</attribute></item>
+          <item><attribute name="action">app.view-zoom-out</attribute></item>
+          <item><attribute name="action">app.view-zoom-in</attribute></item>
+          <item><attribute name="action">app.view-zoom-fit-in</attribute></item>
+          <item><attribute name="action">app.view-zoom-fill</attribute></item>
+          <item><attribute name="action">app.view-zoom-selection</attribute></item>
+        </section>
+        <section>
+          <item><attribute name="action">app.view-zoom-16-1</attribute></item>
+          <item><attribute name="action">app.view-zoom-8-1</attribute></item>
+          <item><attribute name="action">app.view-zoom-4-1</attribute></item>
+          <item><attribute name="action">app.view-zoom-2-1</attribute></item>
+          <item><attribute name="action">app.view-zoom-1-1</attribute></item>
+          <item><attribute name="action">app.view-zoom-1-2</attribute></item>
+          <item><attribute name="action">app.view-zoom-1-4</attribute></item>
+          <item><attribute name="action">app.view-zoom-1-8</attribute></item>
+          <item><attribute name="action">app.view-zoom-1-16</attribute></item>
+        </section>
+        <section>
+          <item><attribute name="action">app.view-zoom-other</attribute></item>
+        </section>
+      </submenu>
+      <submenu>
+        <attribute name="label" translatable="yes" context="view-action">_Flip &amp; Rotate</attribute>
+        <section>
+          <item><attribute name="action">app.view-reset</attribute></item>
+        </section>
+        <section>
+          <item><attribute name="action">app.view-flip-horizontally</attribute></item>
+          <item><attribute name="action">app.view-flip-vertically</attribute></item>
+        </section>
+        <section>
+          <item><attribute name="action">app.view-rotate-15</attribute></item>
+          <item><attribute name="action">app.view-rotate-345</attribute></item>
+          <item><attribute name="action">app.view-rotate-90</attribute></item>
+          <item><attribute name="action">app.view-rotate-270</attribute></item>
+          <item><attribute name="action">app.view-rotate-180</attribute></item>
+        </section>
+        <section>
+          <item><attribute name="action">app.view-rotate-other</attribute></item>
+        </section>
+      </submenu>
+      <item><attribute name="action">app.view-scroll-center</attribute></item>
+      <section>
+        <item><attribute name="action">app.view-shrink-wrap</attribute></item>
+        <item><attribute name="action">app.view-fullscreen</attribute></item>
+        <submenu>
+          <attribute name="label" translatable="yes" context="view-action">Move to Screen</attribute>
+          <item><attribute name="action">app.view-open-display</attribute></item>
+          <!-- TODO: screen list. -->
+        </submenu>
+      </section>
+      <section>
+        <item><attribute name="action">app.view-navigation-window</attribute></item>
+        <item><attribute name="action">app.view-display-filters</attribute></item>
+        <submenu>
+          <attribute name="label" translatable="yes" context="view-action">_Color Management</attribute>
+          <section>
+            <item><attribute name="action">app.view-color-management-enable</attribute></item>
+            <item><attribute name="action">app.view-color-management-softproof</attribute></item>
+          </section>
+          <section>
+            <submenu>
+              <attribute name="label" translatable="yes" context="view-action">Display _Rendering Intent</attribute>
+              <item><attribute name="action">app.view-display-intent-perceptual</attribute></item>
+              <item><attribute name="action">app.view-display-intent-relative-colorimetric</attribute></item>
+              <item><attribute name="action">app.view-display-intent-saturation</attribute></item>
+              <item><attribute name="action">app.view-display-intent-absolute-colorimetric</attribute></item>
+            </submenu>
+            <item><attribute name="action">app.view-display-black-point-compensation</attribute></item>
+          </section>
+          <section>
+            <item><attribute name="action">app.view-softproof-gamut-check</attribute></item>
+            <item><attribute name="action">app.view-color-management-reset</attribute></item>
+          </section>
+        </submenu>
+      </section>
+      <section>
+        <item><attribute name="action">app.view-show-selection</attribute></item>
+        <item><attribute name="action">app.view-show-layer-boundary</attribute></item>
+        <item><attribute name="action">app.view-show-canvas-boundary</attribute></item>
+        <item><attribute name="action">app.view-show-guides</attribute></item>
+        <item><attribute name="action">app.view-show-grid</attribute></item>
+        <item><attribute name="action">app.view-show-sample-points</attribute></item>
+      </section>
+      <section>
+        <item><attribute name="action">app.view-snap-to-guides</attribute></item>
+        <item><attribute name="action">app.view-snap-to-grid</attribute></item>
+        <item><attribute name="action">app.view-snap-to-canvas</attribute></item>
+        <item><attribute name="action">app.view-snap-to-path</attribute></item>
+        <item><attribute name="action">app.view-snap-to-bbox</attribute></item>
+        <item><attribute name="action">app.view-snap-to-equidistance</attribute></item>
+      </section>
+      <section>
+        <submenu>
+          <attribute name="label" translatable="yes" context="view-action">_Padding Color</attribute>
+          <section>
+            <item><attribute name="action">app.view-padding-color-theme</attribute></item>
+            <item><attribute name="action">app.view-padding-color-light-check</attribute></item>
+            <item><attribute name="action">app.view-padding-color-dark-check</attribute></item>
+            <item><attribute name="action">app.view-padding-color-custom</attribute></item>
+          </section>
+          <section>
+            <item><attribute name="action">app.view-padding-color-in-show-all</attribute></item>
+          </section>
+          <section>
+            <item><attribute name="action">app.view-padding-color-prefs</attribute></item>
+          </section>
+        </submenu>
+        <item><attribute name="action">app.view-show-menubar</attribute></item>
+        <item><attribute name="action">app.view-show-rulers</attribute></item>
+        <item><attribute name="action">app.view-show-scrollbars</attribute></item>
+        <item><attribute name="action">app.view-show-statusbar</attribute></item>
+      </section>
+    </submenu>
+
+    <!-- Tools Menu -->
+
+    <submenu>
+      <attribute name="label" translatable="yes" context="tools-action">_Tools</attribute>
+      <section>
+        <submenu>
+          <attribute name="label" translatable="yes" context="tools-action">_Selection Tools</attribute>
+          <item><attribute name="action">app.tools-rect-select</attribute></item>
+          <item><attribute name="action">app.tools-ellipse-select</attribute></item>
+          <item><attribute name="action">app.tools-free-select</attribute></item>
+          <item><attribute name="action">app.tools-foreground-select</attribute></item>
+          <item><attribute name="action">app.tools-fuzzy-select</attribute></item>
+          <item><attribute name="action">app.tools-by-color-select</attribute></item>
+          <item><attribute name="action">app.tools-iscissors</attribute></item>
+          <!-- Enable when the tool leaves the playground
+          <item><attribute name="action">app.tools-paint-select</attribute></item>
+          -->
+        </submenu>
+        <submenu>
+          <attribute name="label" translatable="yes" context="tools-action">_Paint Tools</attribute>
+          <item><attribute name="action">app.tools-bucket-fill</attribute></item>
+          <item><attribute name="action">app.tools-gradient</attribute></item>
+          <item><attribute name="action">app.tools-pencil</attribute></item>
+          <item><attribute name="action">app.tools-paintbrush</attribute></item>
+          <item><attribute name="action">app.tools-eraser</attribute></item>
+          <item><attribute name="action">app.tools-airbrush</attribute></item>
+          <item><attribute name="action">app.tools-ink</attribute></item>
+          <item><attribute name="action">app.tools-mypaint-brush</attribute></item>
+          <item><attribute name="action">app.tools-shape</attribute></item>
+          <item><attribute name="action">app.tools-clone</attribute></item>
+          <item><attribute name="action">app.tools-heal</attribute></item>
+          <item><attribute name="action">app.tools-perspective-clone</attribute></item>
+          <item><attribute name="action">app.tools-convolve</attribute></item>
+          <item><attribute name="action">app.tools-smudge</attribute></item>
+          <item><attribute name="action">app.tools-dodge-burn</attribute></item>
+        </submenu>
+        <submenu>
+          <attribute name="label" translatable="yes" context="tools-action">_Transform Tools</attribute>
+          <item><attribute name="action">app.tools-align</attribute></item>
+          <item><attribute name="action">app.tools-move</attribute></item>
+          <item><attribute name="action">app.tools-crop</attribute></item>
+          <item><attribute name="action">app.tools-rotate</attribute></item>
+          <item><attribute name="action">app.tools-scale</attribute></item>
+          <item><attribute name="action">app.tools-shear</attribute></item>
+          <item><attribute name="action">app.tools-perspective</attribute></item>
+          <item><attribute name="action">app.tools-transform-3d</attribute></item>
+          <item><attribute name="action">app.tools-unified-transform</attribute></item>
+          <item><attribute name="action">app.tools-handle-transform</attribute></item>
+          <item><attribute name="action">app.tools-flip</attribute></item>
+          <item><attribute name="action">app.tools-cage</attribute></item>
+          <item><attribute name="action">app.tools-warp</attribute></item>
+          <!-- Enable when the tool leaves the playground
+          <item><attribute name="action">app.tools-n-point-deformation</attribute></item>
+          -->
+        </submenu>
+        <item><attribute name="action">app.tools-path</attribute></item>
+        <item><attribute name="action">app.tools-text</attribute></item>
+      </section>
+      <section>
+        <item><attribute name="action">app.tools-color-picker</attribute></item>
+        <item><attribute name="action">app.tools-measure</attribute></item>
+        <item><attribute name="action">app.tools-zoom</attribute></item>
+      </section>
+      <section>
+        <item><attribute name="action">app.tools-gegl</attribute></item>
+      </section>
+      <section>
+        <item><attribute name="action">app.dialogs-toolbox</attribute></item>
+        <item><attribute name="action">app.context-colors-default</attribute></item>
+        <item><attribute name="action">app.context-colors-swap</attribute></item>
+      </section>
+    </submenu>
+
     <submenu>
       <attribute name="label" translatable="yes" context="windows-action">_Windows</attribute>
       <section>
@@ -872,12 +894,10 @@
           <attribute name="label" translatable="yes" context="windows-action">_Recently Closed Docks</attribute>
           <!-- Recently closed docks will be filled here automatically -->
         </submenu>
-        <submenu>
-          <attribute name="label" translatable="yes" context="windows-action">_Dockable Dialogs</attribute>
-          <xi:include href="@GROUP@-dialogs-menuitems.ui" />
-        </submenu>
         <item><attribute name="action">app.dialogs-toolbox</attribute></item>
       </section>
+      <!-- GIMPshop: all panels directly in the Window menu, like Photoshop -->
+      <xi:include href="@GROUP@-dialogs-menuitems.ui" />
       <section>
         <attribute name="section-name" translatable="no">Images</attribute>
       </section>

@@ -118,6 +118,8 @@ static void       gimp_ui_manager_delete_popdown_data  (GtkWidget      *widget,
                                                         GimpUIManager  *manager);
 
 static void       gimp_ui_manager_menu_item_free       (GimpUIManagerMenuItem *item);
+static gchar *     gimp_ui_manager_remap_path           (GimpUIManager         *manager,
+                                                        const gchar           *path);
 
 static void       gimp_ui_manager_popup_hidden         (GtkMenuShell          *popup,
                                                         gpointer               user_data);
@@ -622,9 +624,10 @@ gimp_ui_manager_add_ui (GimpUIManager *manager,
   g_return_if_fail (action_name != NULL);
 
   item = g_slice_new0 (GimpUIManagerMenuItem);
-  item->path        = g_strdup (path);
+  item->path        = gimp_ui_manager_remap_path (manager, path);
   item->action_name = g_strdup (action_name);
   item->top         = top;
+  path              = item->path;
 
   manager->ui_items = g_list_prepend (manager->ui_items, item);
 
@@ -1144,6 +1147,39 @@ gimp_ui_manager_delete_popdown_data (GtkWidget     *widget,
                                         gimp_ui_manager_delete_popdown_data,
                                         manager);
   g_object_set_data (G_OBJECT (manager), "popdown-data", NULL);
+}
+
+/* GIMPshop: the "Colors" menu lives in "Image > Adjustments" like in
+ * Photoshop. Plug-ins and GEGL filters still register into
+ * "<Image>/Colors/...", so redirect those paths for the image menu.
+ * Mnemonic underscores in the first component are ignored.
+ */
+static gchar *
+gimp_ui_manager_remap_path (GimpUIManager *manager,
+                            const gchar   *path)
+{
+  static const gchar *old_root = "/Colors";
+  static const gchar *new_root = "/Image/Adjustments";
+  const gchar        *p;
+  const gchar        *o;
+
+  if (g_strcmp0 (manager->name, "<Image>") != 0 || path[0] != '/')
+    return g_strdup (path);
+
+  /* compare "/Colors" while skipping '_' mnemonic markers in path */
+  for (p = path, o = old_root; *p && *o; p++)
+    {
+      if (*p == '_')
+        continue;
+      if (*p != *o)
+        return g_strdup (path);
+      o++;
+    }
+
+  if (*o == '\0' && (*p == '\0' || *p == '/' || *p == '['))
+    return g_strconcat (new_root, p, NULL);
+
+  return g_strdup (path);
 }
 
 static void

@@ -47,13 +47,13 @@ static const GimpActionEntry select_actions[] =
     GIMP_HELP_SELECTION_ALL },
 
   { "select-none", GIMP_ICON_SELECTION_NONE,
-    NC_("select-action", "_None"), NULL, { "<primary>D", "<primary><shift>A", NULL },
+    NC_("select-action", "_Deselect"), NULL, { "<primary>D", "<primary><shift>A", NULL },
     NC_("select-action", "Dismiss the selection"),
     select_none_cmd_callback,
     GIMP_HELP_SELECTION_NONE },
 
   { "select-invert", GIMP_ICON_INVERT,
-    NC_("select-action", "_Invert"), NULL, { "<primary><shift>I", NULL },
+    NC_("select-action", "_Inverse"), NULL, { "<primary><shift>I", NULL },
     NC_("select-action", "Invert the selection"),
     select_invert_cmd_callback,
     GIMP_HELP_SELECTION_INVERT },
@@ -84,13 +84,13 @@ static const GimpActionEntry select_actions[] =
     GIMP_HELP_SELECTION_SHARPEN },
 
   { "select-shrink", GIMP_ICON_SELECTION_SHRINK,
-    NC_("select-action", "S_hrink..."), NULL, { NULL },
+    NC_("select-action", "_Contract..."), NULL, { NULL },
     NC_("select-action", "Contract the selection"),
     select_shrink_cmd_callback,
     GIMP_HELP_SELECTION_SHRINK },
 
   { "select-grow", GIMP_ICON_SELECTION_GROW,
-    NC_("select-action", "_Grow..."), NULL, { NULL },
+    NC_("select-action", "_Expand..."), NULL, { NULL },
     NC_("select-action", "Enlarge the selection"),
     select_grow_cmd_callback,
     GIMP_HELP_SELECTION_GROW },

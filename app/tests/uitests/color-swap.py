@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 # runs real gimp under a dogtail HermeticSession, closes the welcome dialog,
-# opens Windows > Dockable Dialogs > Colors (the FG/BG dockable - always
+# opens Windows > Colors (the FG/BG dockable - always
 # shows a live hex triplet for whichever of FG/BG is active, FG by default),
 # reads it (expect 000000, gimp's default fg is black), fires Tools > Swap
 # Colors, checks the same hex entry now reads ffffff.
@@ -51,9 +51,9 @@ with gimp_session(GIMP, MUTTER) as (session, app, proc):
             node = found
         time.sleep(0.3)
 
-    # --- step 3: Windows > Dockable Dialogs > Colors -----------------------
+    # --- step 3: Windows > Colors -----------------------
 
-    click_menu_path("Windows", "Dockable Dialogs", "Colors")
+    click_menu_path("Windows", "Colors")
 
     # --- step 4: find the hex entry -----------------------------------
 

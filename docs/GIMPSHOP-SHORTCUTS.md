@@ -154,3 +154,17 @@ abfangen.
 - Das ursprüngliche GIMP-Aussehen heißt dort **„GIMP Classic“**.
 - Blau markiert Menüeinträge, aktive Reiter, Checkboxen und den
   Standard-Button in Dialogen.
+
+## Menüs (Phase 3)
+
+| Photoshop | GIMPshop | früher in GIMP |
+|---|---|---|
+| Bild → Korrekturen | Bild → Korrekturen | Farben |
+| Bild → Bildgröße (Strg+Alt+I) | Bild → Bildgröße | Bild → Bild skalieren |
+| Bild → Arbeitsfläche (Strg+Alt+C) | Bild → Leinwandgröße | Bild → Leinwandgröße |
+| Schrift | Schrift | Ebene / Werkzeuge |
+| Auswahl → Auswahl aufheben (Strg+D) | Auswahl → Auswahl aufheben | Auswahl → Nichts |
+| Auswahl → Auswahl umkehren | Auswahl → Auswahl umkehren | Auswahl → Invertieren |
+| Auswahl → Farbbereich | Auswahl → Farbbereich | Auswahl → Nach Farbe |
+| Auswahl → Auswahl verändern → … | Auswahl → Auswahl verändern → Rand / Erweitern / Verkleinern / Weiche Kante | Auswahl → … |
+| Fenster → Ebenen, Farbe, … | Fenster → Ebenen, Farben, … | Fenster → Andockbare Dialoge → … |

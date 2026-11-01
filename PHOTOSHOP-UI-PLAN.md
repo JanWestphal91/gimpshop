@@ -116,19 +116,39 @@ Offen:
 - Neue Texte (Willkommen, Starthinweis, „Based on GIMP …“) sind noch nicht
   übersetzt und erscheinen auf Englisch.
 
-### Phase 3 – Menüs und Begriffe
+### Phase 3 – Menüs und Begriffe ✅ größtenteils umgesetzt
 
-1. `menus/image-menu.ui.in.in` umstrukturieren auf
-   Datei · Bearbeiten · Bild · Ebene · Schrift · Auswahl · Filter · Ansicht · Fenster · Hilfe.
-   - „Bild > Korrekturen“ bündelt Helligkeit/Kontrast, Tonwerte, Kurven,
-     Belichtung, Farbton/Sättigung usw. (heute unter „Farben“).
-   - „Ebene“ bekommt Neu, Duplizieren, Maske, Schnittmaske, Smart-Objekt-Ersatz,
-     Anordnen, Zusammenfügen.
-   - „Schrift“ als neues Menü mit Text-Aktionen.
-   - „Fenster“ zeigt alle dockbaren Dialoge (heute „Fenster > Andockbare Dialoge“).
-2. Begriffe in `po/de.po` (und `po/en` via Strings) angleichen: „Ebene
-   duplizieren“, „Freistellen“, „Auf Hintergrundebene reduzieren“, „Deckkraft“
-   / „Fläche“ usw.
+Umgesetzt:
+
+1. **Menüleiste in Photoshop-Reihenfolge:** Datei · Bearbeiten · Bild · Ebene ·
+   Schrift · Auswahl · Filter · Ansicht · Werkzeuge · Fenster · Hilfe.
+2. **Bild → Korrekturen** enthält alles aus dem früheren Menü „Farben“
+   (Helligkeit/Kontrast, Tonwerte, Kurven, Farbton/Sättigung, Farbbalance,
+   Belichtung, Umkehren, Schwellwert, …). Plug-ins und GEGL-Filter, die sich
+   unter `<Image>/Colors` registrieren, werden automatisch nach
+   `Bild → Korrekturen` umgeleitet (`gimp_ui_manager_remap_path()` in
+   `app/widgets/gimpuimanager.c`), es entsteht kein zweites „Farben“-Menü.
+3. **Bild:** Auto-Funktionen (Weißabgleich, Kontrastspreizung,
+   Farbverbesserung) direkt im Menü, *Bildgröße* und *Arbeitsfläche* oben im
+   Größen-Abschnitt, *Duplizieren* weiter unten wie in Photoshop.
+4. **Neues Menü „Schrift“:** Textwerkzeug, Schriften, Text in Pfad,
+   Text entlang Pfad, Rastern.
+5. **Auswahl → Auswahl verändern** (Rand, Erweitern, Verkleinern, Weiche
+   Kante) als Untermenü. Die Plug-in-Ankerpunkte `[Modify]` und `Modify`
+   funktionieren weiter.
+6. **Fenster** listet alle Bedienfelder direkt (kein Untermenü
+   „Andockbare Dialoge“ mehr).
+7. **Begriffe wie in Photoshop** (englisch und deutsch): Bildgröße,
+   Auswahl aufheben, Auswahl umkehren, Erweitern, Verkleinern, Farbbereich,
+   Weiche Kante, Korrekturen, Schrift. Deutsche Übersetzungen dafür in
+   `po/de.po`.
+
+Offen:
+
+- „Ebene“ weiter angleichen (Ebenenstil, Schnittmaske, Smart-Objekte hängen
+  von Phase 4 bzw. neuen Funktionen ab).
+- Neue englische Begriffe sind nur ins Deutsche übersetzt; andere Sprachen
+  zeigen für diese Einträge Englisch.
 
 ### Phase 4 – Bedienung im C-Code (größter Aufwand, größter Effekt)
 
