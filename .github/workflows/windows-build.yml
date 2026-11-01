@@ -42,7 +42,7 @@ jobs:
       - name: Build dependencies (babl, GEGL, ...)
         shell: powershell
         run: |
-          $env:MSYS_ROOT = '${{ steps.msys2.outputs.msys2-location }}' -replace '\\','/'
+          $env:MSYS_ROOT = '${{ steps.msys2.outputs.msys2-location }}'
           $GITLAB_CI = 'true'
           $GIT_DEPTH = '1'
           $GIMP_PREFIX = "$PWD\_install"
@@ -52,7 +52,7 @@ jobs:
       - name: Build and bundle GIMPshop
         shell: powershell
         run: |
-          $env:MSYS_ROOT = '${{ steps.msys2.outputs.msys2-location }}' -replace '\\','/'
+          $env:MSYS_ROOT = '${{ steps.msys2.outputs.msys2-location }}'
           $GITLAB_CI = 'true'
           $GIMP_PREFIX = "$PWD\_install"
           $PKGCONF_RELOCATABLE_OPTION = '-Dpkgconfig.relocatable=true'
@@ -70,6 +70,23 @@ jobs:
           path: gimp-clang64/
           if-no-files-found: error
           retention-days: 14
+
+      - name: Diagnose bundling failure
+        if: failure()
+        shell: powershell
+        run: |
+          $env:MSYS_ROOT = '${{ steps.msys2.outputs.msys2-location }}'
+          $env:PATH = "$env:MSYS_ROOT\clang64\bin;$env:MSYS_ROOT\usr\bin;$env:PATH"
+          $b = Get-ChildItem -Directory _build-* | Select-Object -First 1
+          if (-not $b) { Write-Output "no build dir"; exit 0 }
+          Write-Output "== Main binary line in meson-log =="
+          Select-String -Path "$($b.FullName)\meson-logs\meson-log.txt" -Pattern 'Main binary' | Select-Object -First 3
+          Write-Output "== Running bundle script directly =="
+          Set-Location $b.FullName
+          $env:MESON_BUILD_ROOT = $b.FullName
+          $env:MESON_SOURCE_ROOT = (Resolve-Path ..).Path
+          $env:MESON_INSTALL_DESTDIR_PREFIX = (Resolve-Path ..\_install).Path
+          python ..\build\windows\2_bundle-gimp-uni_base.py 2>&1 | Select-Object -Last 60
 
       - name: Upload build logs on failure
         if: failure()
