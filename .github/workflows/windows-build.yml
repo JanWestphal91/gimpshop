@@ -57,6 +57,10 @@ jobs:
           $GIMP_PREFIX = "$PWD\_install"
           $PKGCONF_RELOCATABLE_OPTION = '-Dpkgconfig.relocatable=true'
           $INSTALLER_OPTION = '-Dwindows-installer=true'
+          # Step 1 already downloaded and extracted winflexbison. Put it on
+          # PATH so the script finds win_flex and does not try to extract
+          # the archive a second time (Expand-Archive fails on existing files).
+          if (Test-Path "$PWD\winflexbison") { $env:PATH = "$PWD\winflexbison;$env:PATH" }
           build\windows\2_build-gimp-msys2.ps1
 
       - name: Upload portable bundle
