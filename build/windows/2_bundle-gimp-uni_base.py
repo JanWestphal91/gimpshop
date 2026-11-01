@@ -38,7 +38,8 @@ GIMP_SOURCE = Path(os.getenv("MESON_SOURCE_ROOT")).as_posix()
 ## System prefix: it is MSYSTEM_PREFIX
 with open("meson-logs/meson-log.txt") as f:
   meson_log = f.read()
-match = re.search(r"Main binary: (.*)\\bin\\python\.exe", meson_log)
+# GIMPshop: accept both "\" and "/" separators (meson may log either)
+match = re.search(r"Main binary: (.*)[\\/]bin[\\/]python\.exe", meson_log)
 MSYSTEM_PREFIX = Path(match.group(1).replace("\\", "/"))
 ## GIMP prefix: as set at meson configure time
 GIMP_PREFIX = Path(os.getenv("MESON_INSTALL_DESTDIR_PREFIX")).as_posix()

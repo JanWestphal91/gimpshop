@@ -86,7 +86,8 @@ jobs:
           $env:MESON_BUILD_ROOT = $b.FullName
           $env:MESON_SOURCE_ROOT = (Resolve-Path ..).Path
           $env:MESON_INSTALL_DESTDIR_PREFIX = (Resolve-Path ..\_install).Path
-          python ..\build\windows\2_bundle-gimp-uni_base.py 2>&1 | Select-Object -Last 60
+          $ErrorActionPreference = 'Continue'
+          cmd /c "python ..\build\windows\2_bundle-gimp-uni_base.py 2>&1" | Select-Object -Last 80
 
       - name: Upload build logs on failure
         if: failure()
