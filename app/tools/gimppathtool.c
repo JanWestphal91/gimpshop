@@ -190,7 +190,7 @@ gimp_path_tool_register (GimpToolRegisterCallback callback,
                 "gimp-path-tool",
                 _("Paths"),
                 _("Paths Tool: Create and edit paths"),
-                N_("Pat_hs"), "b",
+                N_("Pat_hs"), "P",
                 NULL, GIMP_HELP_TOOL_PATH,
                 GIMP_ICON_TOOL_PATH,
                 data);

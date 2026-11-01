@@ -88,20 +88,20 @@ static const GimpActionEntry layers_actions[] =
     GIMP_HELP_LAYER_NEW },
 
   { "layers-new-from-visible", NULL,
-    NC_("layers-action", "New from _Visible"), NULL, { NULL },
+    NC_("layers-action", "New from _Visible"), NULL, { "<primary><alt><shift>E", NULL },
     NC_("layers-action",
         "Create a new layer from what is visible in this image"),
     layers_new_from_visible_cmd_callback,
     GIMP_HELP_LAYER_NEW_FROM_VISIBLE },
 
   { "layers-new-group", GIMP_ICON_FOLDER_NEW,
-    NC_("layers-action", "New Layer _Group"), NULL, { NULL },
+    NC_("layers-action", "New Layer _Group"), NULL, { "<primary>G", NULL },
     NC_("layers-action", "Create a new layer group and add it to the image"),
     layers_new_group_cmd_callback,
     GIMP_HELP_LAYER_NEW },
 
   { "layers-duplicate", GIMP_ICON_OBJECT_DUPLICATE,
-    NC_("layers-action", "D_uplicate Layers"), NULL, { "<primary><shift>D", NULL },
+    NC_("layers-action", "D_uplicate Layers"), NULL, { "<primary>J", NULL },
     NC_("layers-action",
         "Create duplicates of selected layers and add them to the image"),
     layers_duplicate_cmd_callback,
@@ -114,37 +114,37 @@ static const GimpActionEntry layers_actions[] =
     GIMP_HELP_LAYER_DELETE },
 
   { "layers-raise", GIMP_ICON_GO_UP,
-    NC_("layers-action", "_Raise Layers"), NULL, { NULL },
+    NC_("layers-action", "_Raise Layers"), NULL, { "<primary>bracketright", NULL },
     NC_("layers-action", "Raise the selected layers one step in the layer stack"),
     layers_raise_cmd_callback,
     GIMP_HELP_LAYER_RAISE },
 
   { "layers-raise-to-top", GIMP_ICON_GO_TOP,
-    NC_("layers-action", "Layers to _Top"), NULL, { NULL },
+    NC_("layers-action", "Layers to _Top"), NULL, { "<primary>braceright", NULL },
     NC_("layers-action", "Move the selected layers to the top of the layer stack"),
     layers_raise_to_top_cmd_callback,
     GIMP_HELP_LAYER_RAISE_TO_TOP },
 
   { "layers-lower", GIMP_ICON_GO_DOWN,
-    NC_("layers-action", "_Lower Layers"), NULL, { NULL },
+    NC_("layers-action", "_Lower Layers"), NULL, { "<primary>bracketleft", NULL },
     NC_("layers-action", "Lower the selected layers one step in the layer stack"),
     layers_lower_cmd_callback,
     GIMP_HELP_LAYER_LOWER },
 
   { "layers-lower-to-bottom", GIMP_ICON_GO_BOTTOM,
-    NC_("layers-action", "Layers to _Bottom"), NULL, { NULL },
+    NC_("layers-action", "Layers to _Bottom"), NULL, { "<primary>braceleft", NULL },
     NC_("layers-action", "Move the selected layers to the bottom of the layer stack"),
     layers_lower_to_bottom_cmd_callback,
     GIMP_HELP_LAYER_LOWER_TO_BOTTOM },
 
   { "layers-anchor", GIMP_ICON_LAYER_ANCHOR,
-    NC_("layers-action", "_Anchor Floating Layer or Mask"), NULL, { "<primary>H", NULL },
+    NC_("layers-action", "_Anchor Floating Layer or Mask"), NULL, { "<primary><alt>H", NULL },
     NC_("layers-action", "Anchor the floating layer or mask"),
     layers_anchor_cmd_callback,
     GIMP_HELP_LAYER_ANCHOR },
 
   { "layers-merge-down", GIMP_ICON_LAYER_MERGE_DOWN,
-    NC_("layers-action", "Merge Do_wn"), NULL, { NULL },
+    NC_("layers-action", "Merge Do_wn"), NULL, { "<primary>E", NULL },
     NC_("layers-action", "Merge these layers with the first visible layer below each"),
     layers_merge_down_cmd_callback,
     GIMP_HELP_LAYER_MERGE_DOWN },
@@ -554,7 +554,7 @@ static const GimpEnumActionEntry layers_select_actions[] =
     GIMP_HELP_LAYER_BOTTOM },
 
   { "layers-select-previous", NULL,
-    NC_("layers-action", "Select _Previous Layers"), NULL, { "Prior", NULL },
+    NC_("layers-action", "Select _Previous Layers"), NULL, { "Prior", "<alt>bracketright", NULL },
     NC_("layers-action",
         "Select the layers above each currently selected layer. "
         "Layers will not be selected outside their current group level."),
@@ -562,7 +562,7 @@ static const GimpEnumActionEntry layers_select_actions[] =
     GIMP_HELP_LAYER_PREVIOUS },
 
   { "layers-select-next", NULL,
-    NC_("layers-action", "Select _Next Layers"), NULL, { "Next", NULL },
+    NC_("layers-action", "Select _Next Layers"), NULL, { "Next", "<alt>bracketleft", NULL },
     NC_("layers-action",
         "Select the layers below each currently selected layer. "
         "Layers will not be selected outside their current group level."),

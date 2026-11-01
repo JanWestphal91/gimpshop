@@ -1688,8 +1688,11 @@ conf.set_quoted('GIMP_PKGCONFIG_VERSION', gimp_api_version)
 # Possibly change default gimpdir from $XDG_CONFIG_HOME/GIMP/gimp_user_version
 gimpdir = get_option('gimpdir')
 if gimpdir == ''
-  # Default value
-  gimpdir = meson.project_name().to_upper()
+  # Default value. GIMPshop uses its own config directory
+  # ($XDG_CONFIG_HOME/GIMPshop, %APPDATA%\GIMPshop on Windows) so that
+  # its Photoshop-like defaults apply and it never clashes with an
+  # installed upstream GIMP.
+  gimpdir = 'GIMPshop'
 endif
 
 project_subdir = meson.project_name() / gimp_api_version

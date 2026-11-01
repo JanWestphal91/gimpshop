@@ -133,7 +133,7 @@ gimp_shape_tool_register (GimpToolRegisterCallback  callback,
                 "gimp-shape-tool",
                 _("Shape Creator"),
                 _("Shape Tool: Create vector and raster shapes"),
-                N_("Sh_ape"), NULL,
+                N_("Sh_ape"), "U",
                 NULL, GIMP_HELP_TOOL_SHAPE,
                 GIMP_ICON_TOOL_SHAPE,
                 data);

@@ -105,7 +105,7 @@ gimp_free_select_tool_register (GimpToolRegisterCallback  callback,
                 _("Free Select"),
                 _("Free Select Tool: Select a hand-drawn region with free "
                   "and polygonal segments"),
-                N_("_Free Select"), "F",
+                N_("_Free Select"), "L",
                 NULL, GIMP_HELP_TOOL_FREE_SELECT,
                 GIMP_ICON_TOOL_FREE_SELECT,
                 data);

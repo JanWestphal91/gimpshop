@@ -58,7 +58,7 @@ static const GimpActionEntry image_actions[] =
     GIMP_HELP_FILE_NEW },
 
   { "image-duplicate", GIMP_ICON_OBJECT_DUPLICATE,
-    NC_("image-action", "_Duplicate"), NULL, { "<primary>D", NULL },
+    NC_("image-action", "_Duplicate"), NULL, { NULL },
     NC_("image-action", "Create a duplicate of this image"),
     image_duplicate_cmd_callback,
     GIMP_HELP_IMAGE_DUPLICATE },
@@ -94,7 +94,7 @@ static const GimpActionEntry image_actions[] =
     GIMP_HELP_IMAGE_COLOR_PROFILE_SAVE },
 
   { "image-resize", GIMP_ICON_OBJECT_RESIZE,
-    NC_("image-action", "Can_vas Size..."), NULL, { NULL },
+    NC_("image-action", "Can_vas Size..."), NULL, { "<primary><alt>C", NULL },
     NC_("image-action", "Adjust the image dimensions"),
     image_resize_cmd_callback,
     GIMP_HELP_IMAGE_RESIZE },
@@ -118,7 +118,7 @@ static const GimpActionEntry image_actions[] =
     GIMP_HELP_IMAGE_PRINT_SIZE },
 
   { "image-scale", GIMP_ICON_OBJECT_SCALE,
-    NC_("image-action", "_Scale Image..."), NULL, { NULL },
+    NC_("image-action", "_Scale Image..."), NULL, { "<primary><alt>I", NULL },
     NC_("image-action", "Change the size of the image content"),
     image_scale_cmd_callback,
     GIMP_HELP_IMAGE_SCALE },
@@ -136,7 +136,7 @@ static const GimpActionEntry image_actions[] =
     GIMP_HELP_IMAGE_CROP },
 
   { "image-merge-layers", NULL,
-    NC_("image-action", "Merge Visible _Layers..."), NULL, { "<primary>M", NULL },
+    NC_("image-action", "Merge Visible _Layers..."), NULL, { "<primary><shift>E", NULL },
     NC_("image-action", "Merge all visible layers into one layer"),
     image_merge_layers_cmd_callback,
     GIMP_HELP_IMAGE_MERGE_LAYERS },

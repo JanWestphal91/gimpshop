@@ -292,7 +292,7 @@ gimp_iscissors_tool_register (GimpToolRegisterCallback  callback,
                 _("Scissors Select"),
                 _("Scissors Select Tool: Select shapes using intelligent edge-fitting"),
                 N_("_Scissors Select"),
-                "I",
+                "<shift>L",
                 NULL, GIMP_HELP_TOOL_ISCISSORS,
                 GIMP_ICON_TOOL_ISCISSORS,
                 data);

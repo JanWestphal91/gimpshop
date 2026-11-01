@@ -163,7 +163,7 @@ gimp_cage_tool_register (GimpToolRegisterCallback  callback,
                 "gimp-cage-tool",
                 _("Cage Transform"),
                 _("Cage Transform: Deform a selection with a cage"),
-                N_("_Cage Transform"), "<shift>G",
+                N_("_Cage Transform"), NULL,
                 NULL, GIMP_HELP_TOOL_CAGE,
                 GIMP_ICON_TOOL_CAGE,
                 data);

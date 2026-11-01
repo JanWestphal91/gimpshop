@@ -89,7 +89,7 @@ gimp_unified_transform_tool_register (GimpToolRegisterCallback  callback,
                 _("Unified Transform"),
                 _("Unified Transform Tool: "
                   "Transform the layer, selection or path"),
-                N_("_Unified Transform"), "<shift>T",
+                N_("_Unified Transform"), "<primary>T",
                 NULL, GIMP_HELP_TOOL_UNIFIED_TRANSFORM,
                 GIMP_ICON_TOOL_UNIFIED_TRANSFORM,
                 data);

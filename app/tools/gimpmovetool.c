@@ -115,7 +115,7 @@ gimp_move_tool_register (GimpToolRegisterCallback  callback,
                 "gimp-move-tool",
                 C_("tool", "Move"),
                 _("Move Tool: Move layers, selections, and other objects"),
-                N_("_Move"), "M",
+                N_("_Move"), "V",
                 NULL, GIMP_HELP_TOOL_MOVE,
                 GIMP_ICON_TOOL_MOVE,
                 data);

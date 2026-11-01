@@ -394,12 +394,12 @@ gimp_action_group_add_action_with_accel (GimpActionGroup    *group,
           guint       i = 0;
           GdkDisplay *display;
           GdkKeymap  *keymap;
-          gchar      *accel_strs[] = { NULL, NULL, NULL, NULL};
+          gchar      *accel_strs[GIMP_ACTION_MAX_ACCELS + 1] = { NULL, };
 
           display = gdk_display_get_default ();
           keymap = gdk_keymap_get_for_display (display);
 
-          while (accelerators[i] != NULL)
+          while (accelerators[i] != NULL && i < GIMP_ACTION_MAX_ACCELS)
             {
               /**
                * Shifted numeric key accelerators ("<shift>0" .. "<shift>9") do
@@ -467,8 +467,8 @@ gimp_action_group_add_action_with_accel (GimpActionGroup    *group,
             }
           gimp_action_set_default_accels (action, (const gchar **) accel_strs);
 
-          /* free up to 3 accelerator strings (4th entry is always NULL) */
-          for (guint i = 0; i < 3; i++)
+          /* free the accelerator strings (last entry is always NULL) */
+          for (guint i = 0; i < GIMP_ACTION_MAX_ACCELS; i++)
             g_free (accel_strs[i]);
         }
 

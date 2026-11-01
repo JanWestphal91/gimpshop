@@ -90,7 +90,7 @@ static const GimpStringActionEntry filters_actions[] =
     GIMP_HELP_FILTER_INVERT_LINEAR },
 
   { "filters-invert-perceptual", GIMP_ICON_INVERT,
-    NC_("filters-action", "In_vert"), NULL, { NULL }, NULL,
+    NC_("filters-action", "In_vert"), NULL, { "<primary>I", NULL }, NULL,
     "gegl:invert-gamma",
     GIMP_HELP_FILTER_INVERT_PERCEPTUAL },
 
@@ -198,7 +198,7 @@ static const GimpStringActionEntry filters_interactive_actions[] =
     GIMP_HELP_FILTER_CHECKERBOARD },
 
   { "filters-color-balance", GIMP_ICON_TOOL_COLOR_BALANCE,
-    NC_("filters-action", "Color _Balance..."), NULL, { NULL }, NULL,
+    NC_("filters-action", "Color _Balance..."), NULL, { "<primary>B", NULL }, NULL,
     "gimp:color-balance",
     GIMP_HELP_TOOL_COLOR_BALANCE },
 
@@ -248,7 +248,7 @@ static const GimpStringActionEntry filters_interactive_actions[] =
     GIMP_HELP_FILTER_CUBISM },
 
   { "filters-curves", GIMP_ICON_TOOL_CURVES,
-    NC_("filters-action", "_Curves..."), NULL, { NULL }, NULL,
+    NC_("filters-action", "_Curves..."), NULL, { "<primary>M", NULL }, NULL,
     "gimp:curves",
     GIMP_HELP_TOOL_CURVES },
 
@@ -258,7 +258,7 @@ static const GimpStringActionEntry filters_interactive_actions[] =
     GIMP_HELP_FILTER_DEINTERLACE },
 
   { "filters-desaturate", GIMP_ICON_TOOL_DESATURATE,
-    NC_("filters-action", "_Desaturate..."), NULL, { NULL }, NULL,
+    NC_("filters-action", "_Desaturate..."), NULL, { "<primary><shift>U", NULL }, NULL,
     "gimp:desaturate",
     GIMP_HELP_FILTER_DESATURATE },
 
@@ -368,7 +368,7 @@ static const GimpStringActionEntry filters_interactive_actions[] =
     GIMP_HELP_FILTER_HUE_CHROMA },
 
   { "filters-hue-saturation", GIMP_ICON_TOOL_HUE_SATURATION,
-    NC_("filters-action", "Hue-_Saturation..."), NULL, { NULL }, NULL,
+    NC_("filters-action", "Hue-_Saturation..."), NULL, { "<primary>U", NULL }, NULL,
     "gimp:hue-saturation",
     GIMP_HELP_TOOL_HUE_SATURATION },
 
@@ -403,7 +403,7 @@ static const GimpStringActionEntry filters_interactive_actions[] =
     GIMP_HELP_FILTER_LENS_FLARE },
 
   { "filters-levels", GIMP_ICON_TOOL_LEVELS,
-    NC_("filters-action", "_Levels..."), NULL, { NULL }, NULL,
+    NC_("filters-action", "_Levels..."), NULL, { "<primary>L", NULL }, NULL,
     "gimp:levels",
     GIMP_HELP_TOOL_LEVELS },
 
@@ -746,7 +746,7 @@ static const GimpStringActionEntry filters_interactive_actions[] =
 static const GimpEnumActionEntry filters_repeat_actions[] =
 {
   { "filters-repeat", GIMP_ICON_SYSTEM_RUN,
-    NC_("filters-action", "Re_peat Last"), NULL, { "<primary>F", NULL },
+    NC_("filters-action", "Re_peat Last"), NULL, { "<primary><alt>F", NULL },
     NC_("filters-action",
         "Rerun the last used filter using the same settings"),
     GIMP_RUN_WITH_LAST_VALS, FALSE,

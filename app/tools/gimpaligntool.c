@@ -131,7 +131,7 @@ gimp_align_tool_register (GimpToolRegisterCallback  callback,
                 "gimp-align-tool",
                 _("Align and Distribute"),
                 _("Alignment Tool: Align or arrange layers and other objects"),
-                N_("_Align and Distribute"), "Q",
+                N_("_Align and Distribute"), NULL,
                 NULL, GIMP_HELP_TOOL_ALIGN,
                 GIMP_ICON_TOOL_ALIGN,
                 data);

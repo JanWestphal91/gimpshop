@@ -177,7 +177,7 @@ gimp_warp_tool_register (GimpToolRegisterCallback  callback,
                 "gimp-warp-tool",
                 _("Warp Transform"),
                 _("Warp Transform: Deform with different tools"),
-                N_("_Warp Transform"), "W",
+                N_("_Warp Transform"), NULL,
                 NULL, GIMP_HELP_TOOL_WARP,
                 GIMP_ICON_TOOL_WARP,
                 data);

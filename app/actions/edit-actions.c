@@ -69,19 +69,19 @@ static const GimpActionEntry edit_actions[] =
     GIMP_HELP_EDIT_UNDO },
 
   { "edit-redo", GIMP_ICON_EDIT_REDO,
-    NC_("edit-action", "_Redo"), NULL, { "<primary>Y", NULL },
+    NC_("edit-action", "_Redo"), NULL, { "<primary><shift>Z", "<primary>Y", NULL },
     NC_("edit-action", "Redo the last operation that was undone"),
     edit_redo_cmd_callback,
     GIMP_HELP_EDIT_REDO },
 
   { "edit-strong-undo", GIMP_ICON_EDIT_UNDO,
-    NC_("edit-action", "Strong Undo"), NULL, { "<primary><shift>Z", NULL },
+    NC_("edit-action", "Strong Undo"), NULL, { "<primary><alt>Z", NULL },
     NC_("edit-action", "Undo the last operation, skipping visibility changes"),
     edit_strong_undo_cmd_callback,
     GIMP_HELP_EDIT_STRONG_UNDO },
 
   { "edit-strong-redo", GIMP_ICON_EDIT_REDO,
-    NC_("edit-action", "Strong Redo"), NULL, { "<primary><shift>Y", NULL },
+    NC_("edit-action", "Strong Redo"), NULL, { "<primary><alt><shift>Z", NULL },
     NC_("edit-action",
         "Redo the last operation that was undone, skipping visibility changes"),
     edit_strong_redo_cmd_callback,
@@ -123,7 +123,7 @@ static const GimpActionEntry edit_actions[] =
     NC_("edit-action", "Paste as _New Image"),
     /* TRANSLATORS: variant of "Paste as _New Image" when inside "Crea_te" menu. */
     NC_("edit-action", "From _Clipboard"),
-    { "<primary><shift>V", "<shift>Paste", NULL },
+    { "<primary><alt><shift>V", "<shift>Paste", NULL },
     NC_("edit-action", "Create a new image from the content of the clipboard"),
     edit_paste_as_new_image_cmd_callback,
     GIMP_HELP_EDIT_PASTE_AS_NEW_IMAGE },
@@ -154,7 +154,7 @@ static const GimpActionEntry edit_actions[] =
     GIMP_HELP_BUFFER_PASTE },
 
   { "edit-clear", GIMP_ICON_EDIT_CLEAR,
-    NC_("edit-action", "Cl_ear"), NULL, { "Delete", NULL },
+    NC_("edit-action", "Cl_ear"), NULL, { "Delete", "BackSpace", NULL },
     NC_("edit-action", "Clear the selected pixels"),
     edit_clear_cmd_callback,
     GIMP_HELP_EDIT_CLEAR }
@@ -169,7 +169,7 @@ static const GimpEnumActionEntry edit_paste_actions[] =
     GIMP_HELP_EDIT_PASTE },
 
   { "edit-paste-in-place", GIMP_ICON_EDIT_PASTE,
-    NC_("edit-action", "Paste In P_lace"), NULL, { "<primary><alt>V", "<alt>Paste", NULL },
+    NC_("edit-action", "Paste In P_lace"), NULL, { "<primary><shift>V", "<primary><alt>V", "<alt>Paste", NULL },
     NC_("edit-action",
         "Paste the content of the clipboard at its original position"),
     GIMP_PASTE_TYPE_NEW_LAYER_OR_FLOATING_IN_PLACE, FALSE,
@@ -237,19 +237,19 @@ static const GimpEnumActionEntry edit_paste_actions[] =
 static const GimpEnumActionEntry edit_fill_actions[] =
 {
   { "edit-fill-fg", GIMP_ICON_TOOL_BUCKET_FILL,
-    NC_("edit-action", "Fill with _FG Color"), NULL, { "<primary>comma", NULL },
+    NC_("edit-action", "Fill with _FG Color"), NULL, { "<alt>BackSpace", "<alt>Delete", "<primary>comma", NULL },
     NC_("edit-action", "Fill the selection using the foreground color"),
     GIMP_FILL_FOREGROUND, FALSE,
     GIMP_HELP_EDIT_FILL_FG },
 
   { "edit-fill-bg", GIMP_ICON_TOOL_BUCKET_FILL,
-    NC_("edit-action", "Fill with B_G Color"), NULL, { "<primary>period", NULL },
+    NC_("edit-action", "Fill with B_G Color"), NULL, { "<primary>BackSpace", "<primary>Delete", "<primary>period", NULL },
     NC_("edit-action", "Fill the selection using the background color"),
     GIMP_FILL_BACKGROUND, FALSE,
     GIMP_HELP_EDIT_FILL_BG },
 
   { "edit-fill-pattern", GIMP_ICON_PATTERN,
-    NC_("edit-action", "Fill _with Pattern"), NULL, { "<primary>semicolon", NULL },
+    NC_("edit-action", "Fill _with Pattern"), NULL, { NULL },
     NC_("edit-action", "Fill the selection using the active pattern"),
     GIMP_FILL_PATTERN, FALSE,
     GIMP_HELP_EDIT_FILL_PATTERN }

@@ -113,7 +113,7 @@ gimp_transform_3d_tool_register (GimpToolRegisterCallback  callback,
                 "gimp-transform-3d-tool",
                 _("3D Transform"),
                 _("3D Transform Tool: Apply a 3D transformation to the layer, selection or path"),
-                N_("_3D Transform"), "<shift>W",
+                N_("_3D Transform"), NULL,
                 NULL, GIMP_HELP_TOOL_TRANSFORM_3D,
                 GIMP_ICON_TOOL_TRANSFORM_3D,
                 data);

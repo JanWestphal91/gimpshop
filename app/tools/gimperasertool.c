@@ -70,7 +70,7 @@ gimp_eraser_tool_register (GimpToolRegisterCallback  callback,
                 "gimp-eraser-tool",
                 _("Eraser"),
                 _("Eraser Tool: Erase to background or transparency using a brush"),
-                N_("_Eraser"), "<shift>E",
+                N_("_Eraser"), "E",
                 NULL, GIMP_HELP_TOOL_ERASER,
                 GIMP_ICON_TOOL_ERASER,
                 data);

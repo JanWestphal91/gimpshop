@@ -73,7 +73,7 @@ gimp_dodge_burn_tool_register (GimpToolRegisterCallback  callback,
                 "gimp-dodge-burn-tool",
                 _("Dodge / Burn"),
                 _("Dodge / Burn Tool: Selectively lighten or darken using a brush"),
-                N_("Dod_ge / Burn"), "<shift>D",
+                N_("Dod_ge / Burn"), "O",
                 NULL, GIMP_HELP_TOOL_DODGE_BURN,
                 GIMP_ICON_TOOL_DODGE,
                 data);

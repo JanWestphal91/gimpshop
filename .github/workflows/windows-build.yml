@@ -1,0 +1,78 @@
+# Builds GIMPshop for Windows (x64, MSYS2/CLANG64) and uploads a portable
+# bundle as a workflow artifact. Reuses GIMP's own build/windows scripts.
+#
+# Download: Actions tab -> "Windows build" run -> artifact "gimpshop-windows-x64".
+# Unzip and start bin\gimp-3.3.exe (or gimp.cmd).
+
+name: Windows build
+
+on:
+  push:
+    branches: [master, 'claude/**']
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: windows-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 300
+    env:
+      CC: cc
+      CXX: c++
+      MSYSTEM_PREFIX: clang64
+    steps:
+      - name: Checkout (with gimp-data submodule)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Set up MSYS2
+        id: msys2
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: CLANG64
+          update: true
+          install: git
+
+      - name: Build dependencies (babl, GEGL, ...)
+        shell: powershell
+        run: |
+          $env:MSYS_ROOT = '${{ steps.msys2.outputs.msys2-location }}' -replace '\\','/'
+          $GITLAB_CI = 'true'
+          $GIT_DEPTH = '1'
+          $GIMP_PREFIX = "$PWD\_install"
+          $PKGCONF_RELOCATABLE_OPTION = '-Dpkgconfig.relocatable=true'
+          build\windows\1_build-deps-msys2.ps1
+
+      - name: Build and bundle GIMPshop
+        shell: powershell
+        run: |
+          $env:MSYS_ROOT = '${{ steps.msys2.outputs.msys2-location }}' -replace '\\','/'
+          $GITLAB_CI = 'true'
+          $GIMP_PREFIX = "$PWD\_install"
+          $PKGCONF_RELOCATABLE_OPTION = '-Dpkgconfig.relocatable=true'
+          $INSTALLER_OPTION = '-Dwindows-installer=true'
+          build\windows\2_build-gimp-msys2.ps1
+
+      - name: Upload portable bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: gimpshop-windows-x64
+          path: gimp-clang64/
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload build logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-build-logs
+          path: |
+            _build-*/meson-logs/meson-log.txt
+            babl/_build-*/meson-logs/meson-log.txt
+            gegl/_build-*/meson-logs/meson-log.txt

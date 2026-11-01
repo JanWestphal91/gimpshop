@@ -168,8 +168,23 @@ gimp_window_key_press_event (GtkWidget   *widget,
    * before the accelerator activation scheme.
    */
 
+  /* GIMPshop: function keys are never needed for text input, so give
+   * accelerators bound to them precedence over the focus widget.
+   * Otherwise GtkPaned's F6/F8 keybindings swallow Photoshop-style
+   * shortcuts like F6 (Color), F8 (Info) or Shift+F6 (Feather).
+   */
+  if (event->keyval >= GDK_KEY_F1 && event->keyval <= GDK_KEY_F35)
+    {
+      handled = gtk_window_activate_key (window, event);
+
+      if (handled)
+        GIMP_LOG (KEY_EVENTS,
+                  "handled by gtk_window_activate_key(function_key)");
+    }
+
   /* text widgets get all key events first */
-  if (focus &&
+  if (! handled &&
+      focus &&
       (GTK_IS_EDITABLE (focus)  ||
        GTK_IS_TEXT_VIEW (focus) ||
        GIMP_IS_CANVAS (focus)   ||

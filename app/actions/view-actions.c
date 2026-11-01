@@ -86,7 +86,7 @@ static const GimpActionEntry view_actions[] =
     GIMP_HELP_VIEW_SCROLL_CENTER },
 
   { "view-zoom-fit-in", GIMP_ICON_ZOOM_FIT_BEST,
-    NC_("view-action", "_Fit Image in Window"), NULL, { "<primary><shift>J", NULL },
+    NC_("view-action", "_Fit Image in Window"), NULL, { "<primary>0", "<primary><shift>J", NULL },
     NC_("view-action", "Adjust the zoom ratio so that the image becomes fully visible"),
     view_zoom_fit_in_cmd_callback,
     GIMP_HELP_VIEW_ZOOM_FIT_IN },
@@ -149,7 +149,7 @@ static const GimpActionEntry view_actions[] =
     GIMP_HELP_VIEW_COLOR_MANAGEMENT_RESET },
 
   { "view-shrink-wrap", GIMP_ICON_VIEW_SHRINK_WRAP,
-    NC_("view-action", "Shrink _Wrap"), NULL, { "<primary>J", NULL },
+    NC_("view-action", "Shrink _Wrap"), NULL, { NULL },
     NC_("view-action", "Reduce the image window to the size of the image display"),
     view_shrink_wrap_cmd_callback,
     GIMP_HELP_VIEW_SHRINK_WRAP },
@@ -208,7 +208,7 @@ static const GimpToggleActionEntry view_toggle_actions[] =
     GIMP_HELP_VIEW_MARK_OUT_OF_GAMUT },
 
   { "view-show-selection", NULL,
-    NC_("view-action", "Show _Selection"), NULL, { "<primary>T", NULL },
+    NC_("view-action", "Show _Selection"), NULL, { "<primary>H", NULL },
     NC_("view-action", "Display the selection outline"),
     view_toggle_selection_cmd_callback,
     TRUE,
@@ -229,14 +229,14 @@ static const GimpToggleActionEntry view_toggle_actions[] =
     GIMP_HELP_VIEW_SHOW_CANVAS_BOUNDARY },
 
   { "view-show-guides", NULL,
-    NC_("view-action", "Show _Guides"), NULL, { "<primary><shift>T", NULL },
+    NC_("view-action", "Show _Guides"), NULL, { "<primary>semicolon", NULL },
     NC_("view-action", "Display the image's guides"),
     view_toggle_guides_cmd_callback,
     TRUE,
     GIMP_HELP_VIEW_SHOW_GUIDES },
 
   { "view-show-grid", NULL,
-    NC_("view-action", "S_how Grid"), NULL, { NULL },
+    NC_("view-action", "S_how Grid"), NULL, { "<primary>apostrophe", NULL },
     NC_("view-action", "Display the image's grid"),
     view_toggle_grid_cmd_callback,
     FALSE,
@@ -250,7 +250,7 @@ static const GimpToggleActionEntry view_toggle_actions[] =
     GIMP_HELP_VIEW_SHOW_SAMPLE_POINTS },
 
   { "view-snap-to-guides", NULL,
-    NC_("view-action", "Snap to Gu_ides"), NULL, { NULL },
+    NC_("view-action", "Snap to Gu_ides"), NULL, { "<primary><shift>semicolon", NULL },
     NC_("view-action", "Tool operations snap to guides"),
     view_snap_to_guides_cmd_callback,
     TRUE,
@@ -299,7 +299,7 @@ static const GimpToggleActionEntry view_toggle_actions[] =
     GIMP_HELP_VIEW_SHOW_MENUBAR },
 
   { "view-show-rulers", NULL,
-    NC_("view-action", "Show R_ulers"), NULL, { "<primary><shift>R", NULL },
+    NC_("view-action", "Show R_ulers"), NULL, { "<primary>R", NULL },
     NC_("view-action", "Show this window's rulers"),
     view_toggle_rulers_cmd_callback,
     TRUE,
@@ -350,13 +350,13 @@ static const GimpEnumActionEntry view_zoom_actions[] =
     GIMP_HELP_VIEW_ZOOM_IN },
 
   { "view-zoom-out", GIMP_ICON_ZOOM_OUT,
-    NC_("view-zoom-action", "Zoom _Out"), NULL, { "minus", "KP_Subtract", "ZoomOut", NULL },
+    NC_("view-zoom-action", "Zoom _Out"), NULL, { "minus", "KP_Subtract", "ZoomOut", "<primary>minus", NULL },
     NC_("view-zoom-action", "Zoom out"),
     GIMP_ACTION_SELECT_PREVIOUS, FALSE,
     GIMP_HELP_VIEW_ZOOM_OUT },
 
   { "view-zoom-in", GIMP_ICON_ZOOM_IN,
-    NC_("view-zoom-action", "Zoom _In"), NULL, { "plus", "KP_Add", "ZoomIn", NULL },
+    NC_("view-zoom-action", "Zoom _In"), NULL, { "plus", "KP_Add", "ZoomIn", "<primary>plus", "<primary>equal", NULL },
     NC_("view-zoom-action", "Zoom in"),
     GIMP_ACTION_SELECT_NEXT, FALSE,
     GIMP_HELP_VIEW_ZOOM_IN },
@@ -409,7 +409,7 @@ static const GimpEnumActionEntry view_zoom_explicit_actions[] =
   { "view-zoom-1-1", GIMP_ICON_ZOOM_ORIGINAL,
     NC_("view-zoom-action", "Zoom 1:1 (100%)"),
     NC_("view-zoom-action", "_1:1  (100%)"),
-    { "1", "KP_1", NULL },
+    { "1", "KP_1", "<primary>1", NULL },
     NC_("view-zoom-action", "Zoom 1:1"),
     10000, FALSE,
     GIMP_HELP_VIEW_ZOOM_100 },

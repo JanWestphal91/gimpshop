@@ -50,7 +50,16 @@ muss im C-Code dieses Forks passieren.
 
 ## 4. Phasenplan
 
-### Phase 1 – Defaults und Konfiguration (geringes Risiko)
+### Phase 1 – Defaults und Konfiguration (geringes Risiko) ✅ umgesetzt
+
+> Details und Kürzel-Tabelle: [`docs/GIMPSHOP-SHORTCUTS.md`](docs/GIMPSHOP-SHORTCUTS.md).
+> Eigener Konfigurationsordner `GIMPshop` (statt `GIMP`), damit die neuen
+> Defaults auch bei vorhandener GIMP-Installation greifen. Damit entfällt
+> die unten genannte `shortcutsrc`-Migration.
+> Getestet in einem Linux-Build unter Xvfb: alle Werkzeugkürzel, Strg+N/J/E/L/M/U/B/T,
+> Strg+Alt+I/C, Strg+K, Strg+0/1, F5–F8, Umschalt+F6, Alt/Strg+Rücktaste.
+> Technische Änderungen: bis zu 5 Standard-Kürzel pro Aktion
+> (`GIMP_ACTION_MAX_ACCELS`), Funktionstasten haben Vorrang vor dem Fokus-Widget.
 
 1. **Einzelfenster-Modus als Standard** in `gimpguiconfig.c` / `gimprc.in`.
 2. **Werkzeugreihenfolge und -gruppen** in `etc/toolrc` wie in Photoshop:
@@ -143,8 +152,9 @@ größten Wiedererkennungswert hat.
 ## 6. Offene Fragen
 
 - Soll das klassische GIMP-Layout per Schalter erhalten bleiben?
-- Ziel-Plattformen (nur Linux oder auch Windows/macOS-Builds)?
-- Produktname und Icon (wegen Markenrecht nicht „Photoshop“)?
+- ~~Ziel-Plattformen~~ → **Windows** (GitHub-Action `.github/workflows/windows-build.yml`).
+- ~~Produktname~~ → **GIMPshop**. Vollständiges Umbenennen (Fenstertitel,
+  Programmname, Installer, Icon) folgt mit Phase 2.
 
 ## Quellen
 

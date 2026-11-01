@@ -60,6 +60,12 @@ struct _GimpActionGroupClass
 };
 
 
+/* Maximum number of default accelerators per action entry. The
+ * accelerator arrays below hold one more slot for the NULL terminator.
+ */
+#define GIMP_ACTION_MAX_ACCELS 5
+
+
 typedef void (* GimpActionCallback) (GimpAction *action,
                                      GVariant   *value,
                                      gpointer    data);
@@ -70,7 +76,7 @@ struct _GimpActionEntry
   const gchar        *icon_name;
   const gchar        *label;
   const gchar        *short_label;
-  const gchar        *accelerator[4];
+  const gchar        *accelerator[GIMP_ACTION_MAX_ACCELS + 1];
   const gchar        *tooltip;
   GimpActionCallback  callback;
 
@@ -83,7 +89,7 @@ struct _GimpToggleActionEntry
   const gchar        *icon_name;
   const gchar        *label;
   const gchar        *short_label;
-  const gchar        *accelerator[4];
+  const gchar        *accelerator[GIMP_ACTION_MAX_ACCELS + 1];
   const gchar        *tooltip;
   GimpActionCallback  callback;
   gboolean            is_active;
@@ -97,7 +103,7 @@ struct _GimpRadioActionEntry
   const gchar *icon_name;
   const gchar *label;
   const gchar *short_label;
-  const gchar *accelerator[4];
+  const gchar *accelerator[GIMP_ACTION_MAX_ACCELS + 1];
   const gchar *tooltip;
   gint         value;
 
@@ -110,7 +116,7 @@ struct _GimpEnumActionEntry
   const gchar *icon_name;
   const gchar *label;
   const gchar *short_label;
-  const gchar *accelerator[4];
+  const gchar *accelerator[GIMP_ACTION_MAX_ACCELS + 1];
   const gchar *tooltip;
   gint         value;
   gboolean     value_variable;
@@ -124,7 +130,7 @@ struct _GimpStringActionEntry
   const gchar *icon_name;
   const gchar *label;
   const gchar *short_label;
-  const gchar *accelerator[4];
+  const gchar *accelerator[GIMP_ACTION_MAX_ACCELS + 1];
   const gchar *tooltip;
   const gchar *value;
 
@@ -137,7 +143,7 @@ struct _GimpDoubleActionEntry
   const gchar   *icon_name;
   const gchar   *label;
   const gchar   *short_label;
-  const gchar   *accelerator[4];
+  const gchar   *accelerator[GIMP_ACTION_MAX_ACCELS + 1];
   const gchar   *tooltip;
   const gdouble  value;
 

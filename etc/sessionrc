@@ -1,4 +1,7 @@
-# GIMP sessionrc
+# GIMPshop sessionrc
+#
+# Photoshop-like default layout: slim toolbox on the left, panels
+# (Color/Swatches, Properties/Tool Options, Layers) on the right.
 # 
 # This file takes session-specific info (that is info, you want to keep
 # between two GIMP sessions).  You are not supposed to edit it manually, but
@@ -12,21 +15,34 @@
 (session-info "toplevel"
     (factory-entry "gimp-single-image-window")
     (position 0 0)
-    (size 800 600)
+    (size 1280 800)
     (open-on-exit)
     (aux-info
-        (left-docks-width "188")
-        (right-docks-width "205")
-        (maximized "no"))
+        (left-docks-width "56")
+        (right-docks-width "300")
+        (maximized "yes"))
     (gimp-toolbox
-        (side left)
+        (side left))
+    (gimp-dock
+        (side right)
         (book
+            (current-page 0)
+            (dockable "gimp-color-editor"
+                (tab-style automatic)
+                (aux-info
+                    (show-button-bar "true")))
+            (dockable "gimp-palette-editor"
+                (tab-style automatic)
+                (aux-info
+                    (show-button-bar "true"))))
+        (book
+            (position 230)
             (current-page 0)
             (dockable "gimp-tool-options"
                 (tab-style automatic)
                 (aux-info
                     (show-button-bar "true")))
-            (dockable "gimp-device-status"
+            (dockable "gimp-brush-grid"
                 (tab-style automatic)
                 (aux-info
                     (show-button-bar "true")))
@@ -34,32 +50,12 @@
                 (tab-style automatic)
                 (aux-info
                     (show-button-bar "true")))
-            (dockable "gimp-image-list"
-                (tab-style automatic)
-                (aux-info
-                    (show-button-bar "true")))))
-    (gimp-dock
-        (side right)
-        (book
-            (current-page 0)
-            (dockable "gimp-brush-grid"
-                (tab-style automatic)
-                (aux-info
-                    (show-button-bar "true")))
-            (dockable "gimp-pattern-grid"
-                (tab-style automatic)
-                (aux-info
-                    (show-button-bar "true")))
-            (dockable "gimp-font-list"
-                (tab-style automatic)
-                (aux-info
-                    (show-button-bar "true")))
-            (dockable "gimp-document-list"
+            (dockable "gimp-histogram-editor"
                 (tab-style automatic)
                 (aux-info
                     (show-button-bar "true"))))
         (book
-            (position 336)
+            (position 520)
             (current-page 0)
             (dockable "gimp-layer-list"
                 (tab-style automatic)

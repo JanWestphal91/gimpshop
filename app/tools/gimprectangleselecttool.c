@@ -148,7 +148,7 @@ gimp_rectangle_select_tool_register (GimpToolRegisterCallback  callback,
                 "gimp-rect-select-tool",
                 _("Rectangle Select"),
                 _("Rectangle Select Tool: Select a rectangular region"),
-                N_("_Rectangle Select"), "R",
+                N_("_Rectangle Select"), "M",
                 NULL, GIMP_HELP_TOOL_RECT_SELECT,
                 GIMP_ICON_TOOL_RECT_SELECT,
                 data);

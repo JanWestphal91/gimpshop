@@ -101,13 +101,13 @@ static const GimpActionEntry file_actions[] =
     GIMP_HELP_FILE_CREATE_TEMPLATE },
 
   { "file-revert", GIMP_ICON_IMAGE_RELOAD,
-    NC_("file-action", "Re_vert"), NULL, { NULL },
+    NC_("file-action", "Re_vert"), NULL, { "F12", NULL },
     NC_("file-action", "Reload the image file from disk"),
     file_revert_cmd_callback,
     GIMP_HELP_FILE_REVERT },
 
   { "file-close-all", GIMP_ICON_CLOSE_ALL,
-    NC_("file-action", "C_lose All"), NULL, { "<primary><shift>W", NULL },
+    NC_("file-action", "C_lose All"), NULL, { "<primary><alt>W", "<primary><shift>W", NULL },
     NC_("file-action", "Close all opened images"),
     file_close_all_cmd_callback,
     GIMP_HELP_FILE_CLOSE_ALL },
@@ -119,7 +119,7 @@ static const GimpActionEntry file_actions[] =
     GIMP_HELP_FILE_COPY_LOCATION },
 
   { "file-show-in-file-manager", GIMP_ICON_FILE_MANAGER,
-    NC_("file-action", "Show in _File Manager"), NULL, { "<primary><alt>F", NULL },
+    NC_("file-action", "Show in _File Manager"), NULL, { NULL },
     NC_("file-action", "Show image file location in the file manager"),
     file_show_in_file_manager_cmd_callback,
     GIMP_HELP_FILE_SHOW_IN_FILE_MANAGER },
@@ -160,7 +160,7 @@ static const GimpEnumActionEntry file_save_actions[] =
     GIMP_HELP_FILE_SAVE },
 
   { "file-export", NULL,
-    NC_("file-action", "E_xport..."), NULL, { "<primary>E", NULL },
+    NC_("file-action", "E_xport..."), NULL, { NULL },
     NC_("file-action", "Export the image"),
     GIMP_SAVE_MODE_EXPORT, FALSE,
     GIMP_HELP_FILE_EXPORT },
@@ -172,7 +172,7 @@ static const GimpEnumActionEntry file_save_actions[] =
     GIMP_HELP_FILE_OVERWRITE },
 
   { "file-export-as", NULL,
-    NC_("file-action", "E_xport As..."), NULL, { "<primary><shift>E", NULL },
+    NC_("file-action", "E_xport As..."), NULL, { "<primary><alt><shift>W", NULL },
     NC_("file-action", "Export the image to various file formats such as PNG or JPEG"),
     GIMP_SAVE_MODE_EXPORT_AS, FALSE,
     GIMP_HELP_FILE_EXPORT_AS }
@@ -208,10 +208,12 @@ file_actions_setup (GimpActionGroup *group)
       entries[i].value          = i;
       entries[i].value_variable = FALSE;
 
-      if (i < 9)
+      /* GIMPshop: <primary>1 and <primary>0 are used for
+       * "Zoom 100%" and "Fit Image in Window" like in Photoshop,
+       * so only recent files 2..9 get a shortcut.
+       */
+      if (i >= 1 && i < 9)
         entries[i].accelerator[0] = g_strdup_printf ("<primary>%d", i + 1);
-      else if (i == 9)
-        entries[i].accelerator[0] = g_strdup ("<primary>0");
       else
         entries[i].accelerator[0] = NULL;
     }
